@@ -16,7 +16,7 @@
 title: Rudolf Kreibich
 email: westfood@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  I enjoy writing Ansible dramas for computing machines. I keep them humming and purring. Satisfying pleasure of Man.
+  I enjoy writing Ansible dramas for computing machines. Keeping them humming and purring.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: westfood
