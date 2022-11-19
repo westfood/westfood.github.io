@@ -1,5 +1,7 @@
 # Civilizace a hry na ně
 
 [Úvod](úvod.md)
-- [Poznámky ke Starověku]()
 - [Poznámky k válce]()
+- [Populace](populace.md)
+- [Výroba](výroba.md)
+- [Vojsko](vojsko.md)

@@ -9,6 +9,9 @@ Je možné rozpoutat nekontrolovatelnou jadernou válku v rámci zavedené polic
 ## Agrární a průmyslová revoluce
 Je zbytečné se držet herního dělení na starověk, středověk, dobu železnou, klasicistní apod. Hrajeme hru z úhlu poznání člověka dnes. Největší revolucí byla průmyslová revoluce. Hráč od prvního tahu směřuje k vybudování průmyslové společnosti. Nejdřív buduje silnou agrární společnost, aby následně vytvořil průmyslovou společnost. Směr technologického rozvoje se nekliká ve stormu technologií, ten bude fungovat jen jako orientační mapa, ale výběrem činnosti které se jeho populace věnuje. Pálení hlíny časem přinese znalosti o chování kovů v ohni. Populace zabývající výběrem daní přijde s písmem. Některé znalosti se musí spojit např. laboratoři, aby se vytvořila nová znalost. Cílem je vytvořit mnoho cest k nějaké konkrétní technologii. Na hráči je aby nashromáždil investiční bohatsví k jejímu rozšíření. 
 
+## Válka a technologie
+Luky, oštěpy, praky a nože jsou člověku známy už z doby kamené. Nemá smysl je vynalézat. Válčením se střádají znalosti jež umožní jejich další vývoj. Armády můžou být od začátku složené podle libosti. 
+
 ## Jak určit vítěze
 Jediným měřítkem úspěchu civilizace je štěstí jejich obyvatel. Populace proto potřebuje mnohem podrobnější model půsební herního světa na jejich spokojenost. Zasažení válkou, hlad, bezpečí nebo např. i životní standard. Vítězné score je kvantitavní souhrn za celou historii civilizace. Možná je i varianta, že se hodnotí souhrn všech civilizací dané hry.
 
