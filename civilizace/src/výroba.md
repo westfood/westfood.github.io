@@ -1,5 +1,13 @@
 # Výroba
 
+## Výrovní prostředky
+- Pec
+- Pila
+
+## Produkty
+- Obydlí
+- Vojenská výbava
+
 ## Výbava vojáka
 
 ### Poznámky k výrobě brnění ve starověku

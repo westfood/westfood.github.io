@@ -1,17 +1,13 @@
 # Úvod
-Tohle jsou poznámky ke hře kterou nikdy nevytvořím, ale nad kterou rozjímám. Budiž tohle místo protokolem mého procesu myšlení.
-
+Tohle jsou poznámky ke hře kterou nikdy nevytvořím, ale nad kterou rozjímám. Tohle je protkol boje který skončí prohrou.
 ## Nejistota přežití druhu
 Hrám na civilizace chybí prvek úplného konce našeho druhu. Neříkám že konec našeho druhu musí být v rámci nějakých sto tisíc let existence homo sapiens sapiens v herním světě nevyhnutelný. Ale měl by být jedním z možných konců. Dříve než zamoříte planetu v Humankind, zpravidla dosáhnete vítězných podmínek. V Civlizacích se často objevuje cesta na jinou planetu, nicméně je to vyvrcholení technologického pokroku, nikoliv zoufalé vyústění pokusu zachránit antropocén. V poslední fázích her na civilziaci chybí prvek nejistoty.
 
 Je možné rozpoutat nekontrolovatelnou jadernou válku v rámci zavedené policy MAD (Mutually Assured Destruction), která od určité intenzity nezvratitelně zničí podmínky na přežití většiny populace, poslední fází pak bude imaginace post-apokalyptického světa v ruinách civilizace. Kde pozůstatky technologií a zdrojů, slouží k vytvoření nového světa - případně k novému cíli a tím je např. únik na jinou planetu. Stejně tak je možnost rozvinout průmyslovou revolucii do intenzity, jež devastuje planetu. Nemusí tak ani činit hráč, ale AI. Hráč se může jen politicky nebo vojensky AI přesvědčit o změně jeho konání. Za zvážení stojí i využití Deus Ex Machina v podobě meteoru který zasáhne herní svět a herní svět začne odpočítávat počet tahů do konce. 
-
 ## Agrární a průmyslová revoluce
 Je zbytečné se držet herního dělení na starověk, středověk, dobu železnou, klasicistní apod. Hrajeme hru z úhlu poznání člověka dnes. Největší revolucí byla průmyslová revoluce. Hráč od prvního tahu směřuje k vybudování průmyslové společnosti. Nejdřív buduje silnou agrární společnost, aby následně vytvořil průmyslovou společnost. Směr technologického rozvoje se nekliká ve stormu technologií, ten bude fungovat jen jako orientační mapa, ale výběrem činnosti které se jeho populace věnuje. Pálení hlíny časem přinese znalosti o chování kovů v ohni. Populace zabývající výběrem daní přijde s písmem. Některé znalosti se musí spojit např. laboratoři, aby se vytvořila nová znalost. Cílem je vytvořit mnoho cest k nějaké konkrétní technologii. Na hráči je aby nashromáždil investiční bohatsví k jejímu rozšíření. 
-
 ## Válka a technologie
 Luky, oštěpy, praky a nože jsou člověku známy už z doby kamené. Nemá smysl je vynalézat. Válčením se střádají znalosti jež umožní jejich další vývoj. Armády můžou být od začátku složené podle libosti. 
-
 ## Jak určit vítěze
 Jediným měřítkem úspěchu civilizace je štěstí jejich obyvatel. Populace proto potřebuje mnohem podrobnější model půsební herního světa na jejich spokojenost. Zasažení válkou, hlad, bezpečí nebo např. i životní standard. Vítězné score je kvantitavní souhrn za celou historii civilizace. Možná je i varianta, že se hodnotí souhrn všech civilizací dané hry.
 
