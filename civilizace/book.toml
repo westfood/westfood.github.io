@@ -5,3 +5,6 @@ multilingual = false
 src = "src"
 title = "Zápisky ke hře kterou nikdy nevytvořím."
 descriptiom = "Civilizace a hry na ně"
+
+[build]
+build-dir = "../docs"
