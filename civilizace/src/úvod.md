@@ -1,5 +1,5 @@
 # Úvod
-Tohle jsou poznámky ke hře kterou nikdy nevytvořím, ale nad kterou v hlavě rozjímám. Budiž tohle místo protokolem mého myšlení.
+Tohle jsou poznámky ke hře kterou nikdy nevytvořím, ale nad kterou rozjímám. Budiž tohle místo protokolem mého procesu myšlení.
 
 ## Nejistota přežití druhu
 Hrám na civilizace chybí prvek úplného konce našeho druhu. Neříkám že konec našeho druhu musí být v rámci nějakých sto tisíc let existence homo sapiens sapiens v herním světě nevyhnutelný. Ale měl by být jedním z možných konců. Dříve než zamoříte planetu v Humankind, zpravidla dosáhnete vítězných podmínek. V Civlizacích se často objevuje cesta na jinou planetu, nicméně je to vyvrcholení technologického pokroku, nikoliv zoufalé vyústění pokusu zachránit antropocén. V poslední fázích her na civilziaci chybí prvek nejistoty.
