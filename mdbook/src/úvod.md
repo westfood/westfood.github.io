@@ -10,6 +10,7 @@ Je zbytečné se držet herního dělení na starověk, středověk, dobu želez
 Luky, oštěpy, praky a nože jsou člověku známy už z doby kamené. Nemá smysl je vynalézat. Válčením se střádají znalosti jež umožní jejich další vývoj. Armády můžou být od začátku složené podle libosti. 
 ## Jak určit vítěze
 Jediným měřítkem úspěchu civilizace je štěstí jejich obyvatel. Populace proto potřebuje mnohem podrobnější model půsební herního světa na jejich spokojenost. Zasažení válkou, hlad, bezpečí nebo např. i životní standard. Vítězné score je kvantitavní souhrn za celou historii civilizace. Možná je i varianta, že se hodnotí souhrn všech civilizací dané hry.
-
 ## Migrace
 Migrace nás provází už na genetické úrovni 400 000 000 let zpátky, když se ryby pokoušeli opaovat pevninu a stali se tak našimi předky. Každých sto tisíc let nová iterace hominoidů vyrážela z úrodných a proto přemnožených Ethiopských hor do celého světa. Dnes migrujeme z válek do bezpečnějšího prostředí, migrujeme z chudých oblastní abychom zajistili lepší podmínky našim potomkům. Migrace by měla vycházet z potřeby obyvatel. Hráč vytváří prostředí vhodně k migraci.
+## Hospodářství
+Myslím že Victoria 3 má dobrý hospodářský model pro hry na civilizaci. Hospodářství by mělo být simulované strojem, bez rozhodování hráče. Lidstvo je od starověku ponořeného do obchodávní napříč kontinenty. Mělo by to být motor obyvatel. Vyrábět a obchodovat. Na hráči je zajistit bezpečnostní situaci své civilizaci. Výroba a obchodu můžou fungovat i v post-apokalyptické fázi hry. Pokud chce hráč realizovat embargo, musí k jeho realizaci mít kapacitu, jak námořní tak pozemní síly. Hráč musí počítat, že těžce dosáhne abosolutního embarga. To je zvlášť důležité v úvodní fázi, kdy je důležitý cín pro výrobu mědi.

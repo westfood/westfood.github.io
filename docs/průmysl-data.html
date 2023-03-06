@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Suroviny - Poznámky ke hře kterou nikdy nevytvořím.</title>
+        <title>Komponenty - Poznámky ke hře kterou nikdy nevytvořím.</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="úvod.html">Úvod</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Poznámky k válce</div></li><li class="chapter-item expanded "><a href="průmysl.html"><strong aria-hidden="true">2.</strong> Průmysl</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="suroviny.html" class="active"><strong aria-hidden="true">2.1.</strong> Suroviny</a></li><li class="chapter-item expanded "><a href="výroba.html"><strong aria-hidden="true">2.2.</strong> Výroba</a></li><li class="chapter-item expanded "><a href="průmysl-data.html"><strong aria-hidden="true">2.3.</strong> Komponenty</a></li></ol></li><li class="chapter-item expanded "><a href="populace.html"><strong aria-hidden="true">3.</strong> Populace</a></li><li class="chapter-item expanded "><a href="vojsko.html"><strong aria-hidden="true">4.</strong> Vojsko</a></li><li class="chapter-item expanded "><a href="mapa.html"><strong aria-hidden="true">5.</strong> Mapa</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="úvod.html">Úvod</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Poznámky k válce</div></li><li class="chapter-item expanded "><a href="průmysl.html"><strong aria-hidden="true">2.</strong> Průmysl</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="suroviny.html"><strong aria-hidden="true">2.1.</strong> Suroviny</a></li><li class="chapter-item expanded "><a href="výroba.html"><strong aria-hidden="true">2.2.</strong> Výroba</a></li><li class="chapter-item expanded "><a href="průmysl-data.html" class="active"><strong aria-hidden="true">2.3.</strong> Komponenty</a></li></ol></li><li class="chapter-item expanded "><a href="populace.html"><strong aria-hidden="true">3.</strong> Populace</a></li><li class="chapter-item expanded "><a href="vojsko.html"><strong aria-hidden="true">4.</strong> Vojsko</a></li><li class="chapter-item expanded "><a href="mapa.html"><strong aria-hidden="true">5.</strong> Mapa</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,36 +163,34 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#suroviny" id="suroviny">Suroviny</a></h1>
-<h2><a class="header" href="#typy" id="typy">Typy</a></h2>
-<h3><a class="header" href="#výživa" id="výživa">Výživa</a></h3>
-<ul>
-<li>Maso</li>
-<li>Pšenice</li>
-<li>Voda</li>
-</ul>
-<h3><a class="header" href="#průmysl" id="průmysl">Průmysl</a></h3>
-<ul>
-<li>Jíl</li>
-<li>Měď</li>
-<li>Cín</li>
-<li>Železo</li>
-<li>Kámen</li>
-<li>Dřevo</li>
-</ul>
+                        <h1><a class="header" href="#datový-zápis" id="datový-zápis">Datový zápis</a></h1>
+<h2><a class="header" href="#všechny-budovy-a-jejich-obsah-surovin" id="všechny-budovy-a-jejich-obsah-surovin">Všechny Budovy a jejich obsah surovin</a></h2>
+<table><thead><tr><th>Location</th><th>Resource</th><th>Sum</th></tr></thead><tbody>
+<tr><td>Industry0000</td><td>Iron</td><td>5</td></tr>
+<tr><td>Industry0001</td><td>Iron</td><td>7</td></tr>
+<tr><td>Industry0002</td><td>Iron</td><td>5</td></tr>
+<tr><td>Industry9999</td><td>Iron</td><td>7</td></tr>
+<tr><td>Industry0001</td><td>Copper</td><td>1</td></tr>
+<tr><td>Industry9999</td><td>Wood</td><td>20</td></tr>
+</tbody></table>
+<h2><a class="header" href="#budovy" id="budovy">Budovy</a></h2>
+<table><thead><tr><th>Location</th><th>Owner</th><th>Type</th><th>Hitpoints</th></tr></thead><tbody>
+<tr><td>Storage0000</td><td>Player0</td><td>Armory0</td><td>100</td></tr>
+<tr><td>Storage0001</td><td>Ai0</td><td>Storage0</td><td>100</td></tr>
+</tbody></table>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="průmysl.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="výroba.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="výroba.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="populace.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -204,13 +202,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="průmysl.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="výroba.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="výroba.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="populace.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

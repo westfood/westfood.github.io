@@ -1,11 +1,12 @@
 # Suroviny
 
-## Výživa
+## Typy
+### Výživa
 - Maso
 - Pšenice
 - Voda
 
-## Průmysl
+### Průmysl
 - Jíl
 - Měď
 - Cín

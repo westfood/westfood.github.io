@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Suroviny - Poznámky ke hře kterou nikdy nevytvořím.</title>
+        <title>Mapa - Poznámky ke hře kterou nikdy nevytvořím.</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="úvod.html">Úvod</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Poznámky k válce</div></li><li class="chapter-item expanded "><a href="průmysl.html"><strong aria-hidden="true">2.</strong> Průmysl</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="suroviny.html" class="active"><strong aria-hidden="true">2.1.</strong> Suroviny</a></li><li class="chapter-item expanded "><a href="výroba.html"><strong aria-hidden="true">2.2.</strong> Výroba</a></li><li class="chapter-item expanded "><a href="průmysl-data.html"><strong aria-hidden="true">2.3.</strong> Komponenty</a></li></ol></li><li class="chapter-item expanded "><a href="populace.html"><strong aria-hidden="true">3.</strong> Populace</a></li><li class="chapter-item expanded "><a href="vojsko.html"><strong aria-hidden="true">4.</strong> Vojsko</a></li><li class="chapter-item expanded "><a href="mapa.html"><strong aria-hidden="true">5.</strong> Mapa</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="úvod.html">Úvod</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Poznámky k válce</div></li><li class="chapter-item expanded "><a href="průmysl.html"><strong aria-hidden="true">2.</strong> Průmysl</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="suroviny.html"><strong aria-hidden="true">2.1.</strong> Suroviny</a></li><li class="chapter-item expanded "><a href="výroba.html"><strong aria-hidden="true">2.2.</strong> Výroba</a></li><li class="chapter-item expanded "><a href="průmysl-data.html"><strong aria-hidden="true">2.3.</strong> Komponenty</a></li></ol></li><li class="chapter-item expanded "><a href="populace.html"><strong aria-hidden="true">3.</strong> Populace</a></li><li class="chapter-item expanded "><a href="vojsko.html"><strong aria-hidden="true">4.</strong> Vojsko</a></li><li class="chapter-item expanded "><a href="mapa.html" class="active"><strong aria-hidden="true">5.</strong> Mapa</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,38 +163,34 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#suroviny" id="suroviny">Suroviny</a></h1>
-<h2><a class="header" href="#typy" id="typy">Typy</a></h2>
-<h3><a class="header" href="#výživa" id="výživa">Výživa</a></h3>
+                        <h1><a class="header" href="#mapa" id="mapa">Mapa</a></h1>
+<p>Mapa by měl být hexagonální torus, který umožňuje přelít sever do jihu a západ do východu.</p>
+<h2><a class="header" href="#velikost" id="velikost">Velikost</a></h2>
 <ul>
-<li>Maso</li>
-<li>Pšenice</li>
-<li>Voda</li>
-</ul>
-<h3><a class="header" href="#průmysl" id="průmysl">Průmysl</a></h3>
+<li>Grid: 100x100 = 10,000 pozic</li>
+<li>4,000 pozic moře</li>
+<li>6,000 pozic pro pevninu a řeky</li>
+<li>viewport targets
 <ul>
-<li>Jíl</li>
-<li>Měď</li>
-<li>Cín</li>
-<li>Železo</li>
-<li>Kámen</li>
-<li>Dřevo</li>
+<li>1920x1080</li>
+<li>3840x2160</li>
+<li>4096x2160</li>
 </ul>
+</li>
+</ul>
+<h2><a class="header" href="#implementace" id="implementace">Implementace</a></h2>
+<p><a href="https://www.redblobgames.com/grids/hexagons/">Hexagonal Grid by Red Blob Games</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="průmysl.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="vojsko.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="výroba.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -204,15 +200,11 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="průmysl.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="vojsko.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a rel="next" href="výroba.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
