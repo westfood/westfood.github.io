@@ -103,16 +103,20 @@ fn game_configured(gods: Query<&God>, mut game_state: ResMut<GameState>) {
 }
 
 fn compute_yealds(mut next_state: ResMut<NextState<AppState>>, iron_yeald: Query<(&IronYeald)>) {
-    info!("Compute Yealds");
+    info!("Civilizace za tah získala!");
     next_state.set(AppState::Govern);
 }
 
-fn turn_report (
+fn turn_end (
     mut next_state: ResMut<NextState<AppState>>,
-    // query: Query<(&Resources)>
+    mut game: ResMut<GameState>,
 )
     {
-        info!("Report");        
+        info!("Všichni živí bozi v tomto tahu už vládli.");
+        info!("Konec tahu {}", game.turn);
+        game.turn += 1;
+        info!("Začíná tah {}!", game.turn);
+        println!("Bůh {} se ujímá vlády.", game.governing_god);  
         next_state.set(AppState::Govern);
 }
 
@@ -144,10 +148,7 @@ fn round_system(
                     match god {
                         Some(god) => { 
                             game.governing_god = god.name();
-                            game.turn += 1;
-                            info!("Všichni živí bozi v tomto tahu už vládli. Začíná tah {}!", game.turn);
-                            println!("Bůh {} se ujímá vlády.", game.governing_god);
-                            next_state.set(AppState::Govern);
+                            next_state.set(AppState::TurnEnd);
                         },
                         None => { 
                             println!("Antropocén je bez bohů! Svět končí..");
@@ -199,6 +200,6 @@ fn main() {
         .add_system(govern.in_set(OnUpdate(AppState::Govern)))
         .add_system(compute_yealds.in_schedule(OnExit(AppState::Govern)))
         .add_system(round_system.in_schedule(OnEnter(AppState::RoundEnd)))
-        .add_system(turn_report.in_set(OnUpdate(AppState::TurnEnd)))
+        .add_system(turn_end.in_schedule(OnEnter(AppState::TurnEnd)))
         .run();
 }
