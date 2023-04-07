@@ -26,13 +26,11 @@ impl God {
     }
 }
 
-#[derive(Component)]
-struct Iron(u32);
-
 #[derive(Component, Debug)]
 struct IronYeald {
     value: u32
 }
+
 #[derive(Component, Debug)]
 struct CopperYeald {
     value: u32
@@ -43,8 +41,51 @@ struct TinYeald {
     value: u32
 }
 
+
+enum MineTypes {
+    Iron,
+    Tin,
+    Copper,
+}
+
+
+impl MineTypes {
+    fn is_valid(&self) -> bool {
+        match self {
+            MineTypes::Iron | MineTypes::Tin | MineTypes::Copper  => true,
+            _ => false
+        }
+    }
+    fn name(&self) -> String {
+        match self {
+            MineTypes::Iron => String::from("Iron Mine"),
+            MineTypes::Copper => String::from("Copper Mine"),
+            MineTypes::Tin => String::from("Tin Mine"),
+        }
+    }
+}
+
 #[derive(Component, Debug)]
 struct Mine {
+    name: String
+}
+
+impl Mine {
+    fn new(mine_type: MineTypes) -> Mine{
+        if mine_type.is_valid() { 
+            info!("Spawning {}", mine_type.name());
+        {
+            Mine {
+            name: mine_type.name()
+            }
+        }} else { 
+            panic!("Wrong Mine Type")
+        }
+    }
+}
+
+#[derive(Component, Debug)]
+struct Storage {
     name: String,
 }
 
@@ -84,8 +125,14 @@ fn world_created(mut commands: Commands, gods: Query<&God>) {
             alive: true,
         }
     ]);
-    commands.spawn((Mine{ name: "Iron Mine".to_string()}, IronYeald{value: 1}));
-    commands.spawn((Mine{ name: "Iron Mine".to_string()}, IronYeald{value: 2}));
+    commands.spawn((Mine::new(MineTypes::Iron), IronYeald{value: 3}));
+    // commands.spawn((Mine::new("Copper"), IronYeald{value: 3}));
+    // commands.spawn((Mine::new("Tin"), IronYeald{value: 1}));
+    // commands.spawn((Mine{ name: "Iron Mine".to_string()}, IronYeald{value: 3}, IronMaxCapacity{value: 10}));
+    // commands.spawn((Mine{ name: "Iron Mine".to_string()}, IronYeald{value: 2}, IronMaxCapacity{value: 10}));
+    // commands.spawn((Mine{ name: "Tin Yeald".to_string()}, TinYeald{value: 1}, TinMaxCapacity{value: 10}));
+    // commands.spawn((Mine{ name: "Copper Yeald".to_string()}, CopperYeald{value: 2}));
+    // commands.spawn((Storage{ name: "Storage".to_string()}, CopperMaxCapacity{value: 50}));
     info!("Antropocén vytvořen!");
 }
 
