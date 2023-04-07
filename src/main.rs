@@ -10,13 +10,12 @@ use bevy::{prelude::*, sprite::queue_material2d_meshes};
 
 #[derive(Resource, Debug, Default)]
 struct GameState {
-    turn: u8,
-    round: u8,
+    turn: u32,
     governing_god: String,
 
 }
 #[derive(Component, Debug, Default)]
-struct God{
+struct God {
     name: String,
     alive: bool,
 }
@@ -28,23 +27,25 @@ impl God {
 }
 
 #[derive(Component)]
-struct Iron(u8);
+struct Iron(u32);
 
 #[derive(Component, Debug)]
 struct IronYeald {
-    value: u8,
+    value: u32
+}
+#[derive(Component, Debug)]
+struct CopperYeald {
+    value: u32
 }
 
 #[derive(Component, Debug)]
-struct CopperYeald(u8);
-
-#[derive(Component, Debug)]
-struct TinYeald(u8);
+struct TinYeald {
+    value: u32
+}
 
 #[derive(Component, Debug)]
 struct Mine {
     name: String,
-
 }
 
 #[derive(Debug, Clone, Copy, Default, Eq, PartialEq, Hash, States)]
@@ -83,8 +84,8 @@ fn world_created(mut commands: Commands, gods: Query<&God>) {
             alive: true,
         }
     ]);
-    commands.spawn((Mine{ name: "Iron Mine".to_string()}, IronYeald{ value: 2 }));
-    commands.spawn((Mine{ name: "Iron Mine".to_string()}, IronYeald{ value: 1 }));
+    commands.spawn((Mine{ name: "Iron Mine".to_string()}, IronYeald{value: 1}));
+    commands.spawn((Mine{ name: "Iron Mine".to_string()}, IronYeald{value: 2}));
     info!("Antropocén vytvořen!");
 }
 
@@ -102,8 +103,17 @@ fn game_configured(gods: Query<&God>, mut game_state: ResMut<GameState>) {
     info!("Pravidla Antropocénu stvořena!");
 }
 
-fn compute_yealds(mut next_state: ResMut<NextState<AppState>>, iron_yeald: Query<(&IronYeald)>) {
-    info!("Civilizace za tah získala!");
+fn compute_yealds(
+    mut next_state: ResMut<NextState<AppState>>,
+    iron_yeald: Query<&IronYeald>,
+    copper_yeald: Query<&CopperYeald>,
+    tin_yeald: Query<&TinYeald>,
+) {
+    let copper_sum: u32 = copper_yeald.iter().map(|yeald| yeald.value).sum();
+    let tin_sum: u32 = tin_yeald.iter().map(|yeald| yeald.value).sum();
+    let iron_sum: u32 = iron_yeald.iter().map(|yeald| yeald.value).sum();
+    println!("Vytěženo bronzu: {copper_sum}, cínu: {tin_sum}, železa: {iron_sum}");
+    info!("Vzniklé bohatství sečteno!");
     next_state.set(AppState::Govern);
 }
 
@@ -165,23 +175,26 @@ fn round_system(
 fn govern(
     mut commands: Commands,
     keyboard_input: Res<Input<KeyCode>>,
-    mut game_state: ResMut<GameState>,
+    mut game: ResMut<GameState>,
     iron_yeald: Query<(&IronYeald)>,
-    iron: Query<(&Iron)>,
+    copper_yeald: Query<&CopperYeald>,
+    tin_yeald: Query<&TinYeald>,
     mut next_state: ResMut<NextState<AppState>>,
 ) {
     // TODO Implement also Numeric Enter
     if keyboard_input.just_released(KeyCode::Return) {
         info!(
-            "Bůh {} skončil své panování v kole {}.",
-            game_state.governing_god, game_state.round
+            "Bůh {} skončil své panování v tahu {}.",
+            game.governing_god, game.turn
         );
         next_state.set(AppState::RoundEnd)
     }
     if keyboard_input.just_released(KeyCode::Space) {
-        for yeald in &iron_yeald {
-            let sum: u8 = yeald.value;
-        }
+        let copper_sum: u32 = copper_yeald.iter().map(|yeald| yeald.value).sum();
+        let tin_sum: u32 = tin_yeald.iter().map(|yeald| yeald.value).sum();
+        let iron_sum: u32 = iron_yeald.iter().map(|yeald| yeald.value).sum();
+        println!("Plánová težba bronzu: {copper_sum}, cínu: {tin_sum}, železa: {iron_sum}");
+        
     }
 }
 
