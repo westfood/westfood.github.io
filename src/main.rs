@@ -11,14 +11,18 @@ use bevy::{
     sprite::queue_material2d_meshes,
     window::{self, CursorGrabMode, PrimaryWindow},
 };
+
+use rand::prelude::*;
 // use bevy_ecs::schedule::Schedules;
 // use bevy::input::ButtonState;
 // use bevy::render::extract_resource::ExtractResource;
 
 const MAP_HEIGHT: u32 = 100;
 const MAP_WIDTH: u32 = 100;
-const TILE_HEIGHT: f32 = 100.0;
+// Image HEIGHT is 140 - but hexagons are placed with offset
+const TILE_HEIGHT: f32 = 104.0;
 const TILE_WIDTH: f32 = 120.0;
+// Every second vertical tile need to be offseted by half of tile width.
 const TILE_OFFSET: f32 = 60.0;
 
 fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) {
@@ -26,6 +30,7 @@ fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) {
         for y in 0..MAP_WIDTH {
             let mut tile_x: f32;
 
+            // Every second vertical tile need to be offseted by half of tile width.
             if y % 2 == 0 {
                 let x: f32 = x as f32;
                 tile_x = x * TILE_WIDTH - TILE_OFFSET;
@@ -37,10 +42,18 @@ fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) {
             let y: f32 = y as f32;
             let tile_y: f32 = y * TILE_HEIGHT;
 
+            let mut rng = rand::thread_rng();
+            let grass_assets = [5, 10, 11, 12, 13, 14, 15, 16];
+            let random_index = rng.gen_range(0..grass_assets.len());
+            let asset_id = format!(
+                "hexagon-pack/PNG/Tiles/Terrain/Grass/grass_{:02}.png",
+                grass_assets[random_index]
+            );
+
             commands.spawn(
                 (SpriteBundle {
                     transform: Transform::from_xyz(tile_x, tile_y, 0.0),
-                    texture: asset_server.load("hexagon-pack/PNG/Tiles/Terrain/Grass/grass_05.png"),
+                    texture: asset_server.load(asset_id),
                     ..default()
                 }),
             );
