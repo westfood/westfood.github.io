@@ -15,6 +15,39 @@ use bevy::{
 // use bevy::input::ButtonState;
 // use bevy::render::extract_resource::ExtractResource;
 
+const MAP_HEIGHT: u32 = 100;
+const MAP_WIDTH: u32 = 100;
+const TILE_HEIGHT: f32 = 100.0;
+const TILE_WIDTH: f32 = 120.0;
+const TILE_OFFSET: f32 = 60.0;
+
+fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) {
+    for x in 0..MAP_HEIGHT {
+        for y in 0..MAP_WIDTH {
+            let mut tile_x: f32;
+
+            if y % 2 == 0 {
+                let x: f32 = x as f32;
+                tile_x = x * TILE_WIDTH - TILE_OFFSET;
+            } else {
+                let x: f32 = x as f32;
+                tile_x = x * TILE_WIDTH;
+            }
+
+            let y: f32 = y as f32;
+            let tile_y: f32 = y * TILE_HEIGHT;
+
+            commands.spawn(
+                (SpriteBundle {
+                    transform: Transform::from_xyz(tile_x, tile_y, 0.0),
+                    texture: asset_server.load("hexagon-pack/PNG/Tiles/Terrain/Grass/grass_05.png"),
+                    ..default()
+                }),
+            );
+        }
+    }
+}
+
 #[derive(Resource, Debug, Default)]
 struct GameState {
     turn: u32,
@@ -299,6 +332,7 @@ fn main() {
                 world_created,
                 apply_system_buffers,
                 game_configured,
+                generate_terrain,
                 spawn_camera,
             )
                 .chain(),
