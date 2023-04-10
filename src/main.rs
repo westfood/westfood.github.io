@@ -3,7 +3,14 @@
 
 use std::iter::Filter;
 
-use bevy::{prelude::*, sprite::queue_material2d_meshes};
+use bevy::{
+    input::mouse::MouseMotion,
+    pbr::RenderLightSystems,
+    prelude::*,
+    reflect::Tuple,
+    sprite::queue_material2d_meshes,
+    window::{self, CursorGrabMode, PrimaryWindow},
+};
 // use bevy_ecs::schedule::Schedules;
 // use bevy::input::ButtonState;
 // use bevy::render::extract_resource::ExtractResource;
@@ -241,7 +248,37 @@ fn govern(
         let tin_sum: u32 = tin_yeald.iter().map(|yeald| yeald.value).sum();
         let iron_sum: u32 = iron_yeald.iter().map(|yeald| yeald.value).sum();
         println!("Plánová težba bronzu: {copper_sum}, cínu: {tin_sum}, železa: {iron_sum}");
+    }
+}
+
+fn spawn_camera(mut commands: Commands, window_query: Query<&Window, With<PrimaryWindow>>) {
+    let window = window_query.get_single().unwrap();
+
+    commands.spawn(Camera2dBundle {
+        // transform: Transform::from_xyz(window.width() / 2.0, window.height() / 2.0, 0.0),
+        transform: Transform::from_xyz(0.0, 0.0, 0.0),
+        ..default()
+    });
+}
+
+fn camera_dragging(
+    mut windows: Query<&mut Window>,
+    mut ev_motion: EventReader<MouseMotion>,
+    mouse: Res<Input<MouseButton>>,
+    mut camera: Query<&mut Transform, With<Camera>>,
+) {
+    let mut window = windows.single_mut();
+
+    if mouse.pressed(MouseButton::Left) {
+        window.cursor.visible = false;
+        for ev in ev_motion.iter() {
+            let mut camera = camera.single_mut();
+            camera.translation += Vec3::new(-ev.delta.x, ev.delta.y, 0.0);
+        }
+    }
         
+    if mouse.just_released(MouseButton::Left) {
+        window.cursor.visible = true;
     }
 }
 
@@ -256,8 +293,18 @@ fn main() {
         }))
         .init_resource::<GameState>()
         .add_state::<AppState>()
-        .add_startup_systems((intro, world_created, apply_system_buffers, game_configured).chain())
+        .add_startup_systems(
+            (
+                intro,
+                world_created,
+                apply_system_buffers,
+                game_configured,
+                spawn_camera,
+            )
+                .chain(),
+        )
         .add_system(govern.in_set(OnUpdate(AppState::Govern)))
+        .add_system(camera_dragging.in_set(OnUpdate(AppState::Govern)))
         .add_system(compute_yealds.in_schedule(OnExit(AppState::Govern)))
         .add_system(round_system.in_schedule(OnEnter(AppState::RoundEnd)))
         .add_system(turn_end.in_schedule(OnEnter(AppState::TurnEnd)))
