@@ -12,5 +12,16 @@ Mapa by měl být hexagonální torus, který umožňuje přelít sever do jihu 
     - 3840x2160
     - 4096x2160
 
+# Humankind 2560x1080
+- nejvyší přiblížení je 12 grids vertikálně
+- největší oddálení kdy je vidět krajina - 18 grids, sedm kroků
+- osmý krok je náhled
+- sedmnáctý krok zmizí detaily měst a jména nepřipojených území
+- max zoomout 48 grids, 28 kroků
+
+# Civilization 6 - 2560x1440
+- nejvyšší přiblízení je 7 grids vertiálně
+- největší oddálení je 20 grids vertikálně
+
 ## Implementace
 [Hexagonal Grid by Red Blob Games](https://www.redblobgames.com/grids/hexagons/)
