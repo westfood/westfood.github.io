@@ -30,7 +30,7 @@ fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) {
         for y in 0..MAP_WIDTH {
             let mut tile_x: f32;
 
-            // Every second vertical tile need to be offseted by half of tile width.
+            // Every second vertical tile have to be offseted by half of tile width.
             if y % 2 == 0 {
                 let x: f32 = x as f32;
                 tile_x = x * TILE_WIDTH - TILE_OFFSET;
