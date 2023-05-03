@@ -12,7 +12,7 @@ use bevy::{
     window::{self, CursorGrabMode, PrimaryWindow},
 };
 
-use rand::prelude::*;
+use rand::{distributions::WeightedIndex, prelude::*};
 // use bevy_ecs::schedule::Schedules;
 // use bevy::input::ButtonState;
 // use bevy::render::extract_resource::ExtractResource;
@@ -44,7 +44,9 @@ fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) {
 
             let mut rng = rand::thread_rng();
             let grass_assets = [5, 10, 11, 12, 13, 14, 15, 16];
-            let random_index = rng.gen_range(0..grass_assets.len());
+            let weights = [7.0, 3.0, 3.0, 3.0, 3.0, 0.1, 0.1, 0.1];
+            let dist = WeightedIndex::new(&weights).unwrap();
+            let random_index = dist.sample(&mut rng);
             let asset_id = format!(
                 "hexagon-pack/PNG/Tiles/Terrain/Grass/grass_{:02}.png",
                 grass_assets[random_index]
@@ -212,7 +214,7 @@ fn compute_yealds(
     let copper_sum: u32 = copper_yeald.iter().map(|yeald| yeald.value).sum();
     let tin_sum: u32 = tin_yeald.iter().map(|yeald| yeald.value).sum();
     let iron_sum: u32 = iron_yeald.iter().map(|yeald| yeald.value).sum();
-    println!("Vytěženo bronzu: {copper_sum}, cínu: {tin_sum}, železa: {iron_sum}");
+    println!("Vytěženo mědi: {copper_sum}, cínu: {tin_sum}, železa: {iron_sum}");
     info!("Vzniklé bohatství sečteno!");
     next_state.set(AppState::Govern);
 }
