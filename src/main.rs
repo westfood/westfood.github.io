@@ -39,9 +39,6 @@ fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) {
                 tile_x = x * TILE_WIDTH;
             }
 
-            let y: f32 = y as f32;
-            let tile_y: f32 = y * TILE_HEIGHT;
-
             let mut rng = rand::thread_rng();
 
             // Grasslands
@@ -135,7 +132,6 @@ fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) {
 struct GameState {
     turn: u32,
     governing_god: String,
-
 }
 #[derive(Component, Debug, Default)]
 struct God {
@@ -151,19 +147,18 @@ impl God {
 
 #[derive(Component, Debug)]
 struct IronYeald {
-    value: u32
+    value: u32,
 }
 
 #[derive(Component, Debug)]
 struct CopperYeald {
-    value: u32
+    value: u32,
 }
 
 #[derive(Component, Debug)]
 struct TinYeald {
-    value: u32
+    value: u32,
 }
-
 
 enum MineTypes {
     Iron,
@@ -171,12 +166,11 @@ enum MineTypes {
     Copper,
 }
 
-
 impl MineTypes {
     fn is_valid(&self) -> bool {
         match self {
-            MineTypes::Iron | MineTypes::Tin | MineTypes::Copper  => true,
-            _ => false
+            MineTypes::Iron | MineTypes::Tin | MineTypes::Copper => true,
+            _ => false,
         }
     }
     fn name(&self) -> String {
@@ -190,19 +184,59 @@ impl MineTypes {
 
 #[derive(Component, Debug)]
 struct Mine {
-    name: String
+    name: String,
+    asset_id: String,
 }
 
 impl Mine {
-    fn new(mine_type: MineTypes) -> Mine{
-        if mine_type.is_valid() { 
+    fn new(mine_type: MineTypes) -> Mine {
+        if mine_type.is_valid() {
             info!("Spawning {}", mine_type.name());
-        {
-            Mine {
-            name: mine_type.name()
+            {
+                Mine {
+                    name: mine_type.name(),
+                    asset_id: format!("hexagon-pack/PNG/Tiles/Medieval/medieval_mine.png"),
+                }
             }
-        }} else { 
+        } else {
             panic!("Wrong Mine Type")
+        }
+    }
+}
+
+#[derive(Component, Debug)]
+struct Forge {
+    name: String,
+}
+
+impl Forge {
+    fn new() -> Forge {
+        Forge {
+            name: "Forge".to_string(),
+        }
+    }
+}
+#[derive(Component, Debug)]
+struct Furnace {
+    name: String,
+}
+
+impl Furnace {
+    fn new() -> Furnace {
+        Furnace {
+            name: "Furnace".to_string(),
+        }
+    }
+}
+#[derive(Component, Debug)]
+struct Foundry {
+    name: String,
+}
+
+impl Foundry {
+    fn new() -> Foundry {
+        Foundry {
+            name: "Foundry".to_string(),
         }
     }
 }
@@ -246,9 +280,12 @@ fn world_created(mut commands: Commands, gods: Query<&God>) {
         God {
             name: "Skřítek".to_string(),
             alive: true,
-        }
+        },
     ]);
-    commands.spawn((Mine::new(MineTypes::Iron), IronYeald{value: 3}));
+    commands.spawn((Mine::new(MineTypes::Copper), CopperYeald { value: 3 }));
+    commands.spawn(Furnace::new());
+    commands.spawn(Forge::new());
+    commands.spawn(Foundry::new());
     // commands.spawn((Mine::new("Copper"), IronYeald{value: 3}));
     // commands.spawn((Mine::new("Tin"), IronYeald{value: 1}));
     // commands.spawn((Mine{ name: "Iron Mine".to_string()}, IronYeald{value: 3}, IronMaxCapacity{value: 10}));
@@ -262,12 +299,15 @@ fn world_created(mut commands: Commands, gods: Query<&God>) {
 fn game_configured(gods: Query<&God>, mut game_state: ResMut<GameState>) {
     game_state.turn = 0;
     println!("Počet bohů: {}", gods.iter().len());
-    let mut god = gods.iter().filter(|god| god.alive == true ).next();
+    let mut god = gods.iter().filter(|god| god.alive == true).next();
     match god {
         Some(god) => {
             game_state.governing_god = god.name();
-            println!("Tah {}, Začíná bůh: {}", game_state.turn, game_state.governing_god);
-        },
+            println!(
+                "Tah {}, Začíná bůh: {}",
+                game_state.turn, game_state.governing_god
+            );
+        }
         None => println!("Už neexistuje žádný bůh."),
     }
     info!("Pravidla Antropocénu stvořena!");
@@ -287,17 +327,13 @@ fn compute_yealds(
     next_state.set(AppState::Govern);
 }
 
-fn turn_end (
-    mut next_state: ResMut<NextState<AppState>>,
-    mut game: ResMut<GameState>,
-)
-    {
-        info!("Všichni živí bozi v tomto tahu už vládli.");
-        info!("Konec tahu {}", game.turn);
-        game.turn += 1;
-        info!("Začíná tah {}!", game.turn);
-        println!("Bůh {} se ujímá vlády.", game.governing_god);  
-        next_state.set(AppState::Govern);
+fn turn_end(mut next_state: ResMut<NextState<AppState>>, mut game: ResMut<GameState>) {
+    info!("Všichni živí bozi v tomto tahu už vládli.");
+    info!("Konec tahu {}", game.turn);
+    game.turn += 1;
+    info!("Začíná tah {}!", game.turn);
+    println!("Bůh {} se ujímá vlády.", game.governing_god);
+    next_state.set(AppState::Govern);
 }
 
 fn round_system(
@@ -322,24 +358,24 @@ fn round_system(
                     game.governing_god = god.name();
                     println!("Bůh {} se ujímá vlády.", game.governing_god);
                     next_state.set(AppState::Govern);
-                },
+                }
                 None => {
                     let mut god = gods.iter().filter(|god| god.alive == true).next();
                     match god {
-                        Some(god) => { 
+                        Some(god) => {
                             game.governing_god = god.name();
                             next_state.set(AppState::TurnEnd);
-                        },
-                        None => { 
+                        }
+                        None => {
                             println!("Antropocén je bez bohů! Svět končí..");
                             next_state.set(AppState::GameEnd);
                         }
+                    }
                 }
             }
         }
-    },
-    None => println!("Anything")
-}
+        None => println!("Anything"),
+    }
 }
 
 fn govern(
@@ -392,7 +428,7 @@ fn camera_dragging(
             camera.translation += Vec3::new(-ev.delta.x, ev.delta.y, 0.0);
         }
     }
-        
+
     if mouse.just_released(MouseButton::Left) {
         window.cursor.visible = true;
     }
