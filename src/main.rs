@@ -43,26 +43,94 @@ fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) {
             let tile_y: f32 = y * TILE_HEIGHT;
 
             let mut rng = rand::thread_rng();
+
+            // Grasslands
             let grass_assets = [5, 10, 11, 12, 13, 14, 15, 16];
-            let weights = [7.0, 3.0, 3.0, 3.0, 3.0, 0.1, 0.1, 0.1];
-            let dist = WeightedIndex::new(&weights).unwrap();
-            let random_index = dist.sample(&mut rng);
-            let asset_id = format!(
+            let grass_weights = [7.0, 3.0, 3.0, 3.0, 3.0, 0.1, 0.1, 0.1];
+            let grass_dist = WeightedIndex::new(&grass_weights).unwrap();
+            let grass_random_index = grass_dist.sample(&mut rng);
+            let grass_id = format!(
                 "hexagon-pack/PNG/Tiles/Terrain/Grass/grass_{:02}.png",
-                grass_assets[random_index]
+                grass_assets[grass_random_index]
             );
 
-            commands.spawn(
-                (SpriteBundle {
-                    transform: Transform::from_xyz(tile_x, tile_y, 0.0),
-                    texture: asset_server.load(asset_id),
-                    ..default()
-                }),
+            // Deserts
+            let sand_assets = [7, 12, 13, 14, 15, 16, 17, 18];
+            let sand_weights = [7.0, 3.0, 3.0, 3.0, 3.0, 0.1, 0.1, 0.1];
+            let sand_dist = WeightedIndex::new(&sand_weights).unwrap();
+            let sand_random_index = sand_dist.sample(&mut rng);
+            let sand_id = format!(
+                "hexagon-pack/PNG/Tiles/Terrain/Sand/sand_{:02}.png",
+                sand_assets[sand_random_index]
             );
+
+            // Tundra
+            let tundra_assets = [6, 11, 12, 13, 14, 15, 16, 17, 18];
+            let tundra_weights = [7.0, 3.0, 3.0, 3.0, 3.0, 0.1, 0.1, 0.1, 0.1];
+            let tundra_dist = WeightedIndex::new(&tundra_weights).unwrap();
+            let tundra_random_index = tundra_dist.sample(&mut rng);
+            let tundra_id = format!(
+                "hexagon-pack/PNG/Tiles/Terrain/Dirt/dirt_{:02}.png",
+                tundra_assets[sand_random_index]
+            );
+
+            // Snow
+            // let sand_assets = [7, 12, 13, 14, 15, 16, 17, 18];
+            // let sand_weights = [7.0, 3.0, 3.0, 3.0, 3.0, 0.1, 0.1, 0.1];
+            // let sand_dist = WeightedIndex::new(&grass_weights).unwrap();
+            // let sand_random_index = sand_dist.sample(&mut rng);
+            // let sand_id = format!(
+            //     "hexagon-pack/PNG/Tiles/Terrain/Stone/sand{:02}.png",
+            //     sand_assets[sand_random_index]
+            // );
+
+            let y: f32 = y as f32;
+            let tile_y: f32 = y * TILE_HEIGHT;
+            let y_region = y as u32;
+
+            if y_region <= 3 || y_region >= MAP_HEIGHT - 3 {
+                // SNOW
+                commands.spawn(
+                    (SpriteBundle {
+                        transform: Transform::from_xyz(tile_x, tile_y, 0.0),
+                        texture: asset_server
+                            .load("hexagon-pack/PNG/Tiles/Terrain/Stone/stone_07.png"),
+                        ..default()
+                    }),
+                );
+            } else if (y_region >= 4 && y_region <= 15)
+                || (y_region >= MAP_HEIGHT - 15 && y_region <= MAP_HEIGHT - 4)
+            {
+                // TUNDRA
+                commands.spawn(
+                    (SpriteBundle {
+                        transform: Transform::from_xyz(tile_x, tile_y, 0.0),
+                        texture: asset_server.load(tundra_id),
+                        ..default()
+                    }),
+                );
+            } else if y_region >= MAP_HEIGHT / 2 - 5 && y_region <= MAP_HEIGHT / 2 + 5 {
+                // DESERT
+                commands.spawn(
+                    (SpriteBundle {
+                        transform: Transform::from_xyz(tile_x, tile_y, 0.0),
+                        texture: asset_server.load(sand_id),
+                        ..default()
+                    }),
+                );
+            } else {
+                // GRASS
+                commands.spawn(
+                    (SpriteBundle {
+                        transform: Transform::from_xyz(tile_x, tile_y, 0.0),
+                        texture: asset_server.load(grass_id),
+                        ..default()
+                    }),
+                );
+            }
         }
     }
 }
-
 #[derive(Resource, Debug, Default)]
 struct GameState {
     turn: u32,
