@@ -25,3 +25,50 @@ Mapa by měl být hexagonální torus, který umožňuje přelít sever do jihu 
 
 ## Implementace
 [Hexagonal Grid by Red Blob Games](https://www.redblobgames.com/grids/hexagons/)
+
+# Typ pole
+Pobřežní voda
+Oceán
+Travnatá krajina (Grassland)
+Travnatá krajin s kopci (Grassland with Hills)
+Suchá tráva
+Plošina / PLanina (Plains)
+Planina s kopci
+Planina s horou
+Poušť
+Flood Plains
+Prales
+Bažina
+Les
+Kopec
+Hora
+Zasněžená Hora
+Prérie
+Hornaté pole
+Hornatý les
+Pustina
+Neúrodná krajina
+Kamené pole
+Zalesněná krajina
+Oáza
+Černozem
+Korálový útest
+Horké lázně
+Clay
+Jeskyně
+Pramen řeky
+Ledovce
+Divoký oceán
+Led
+
+# Krajina/Biom
+Arktická
+Badlands
+Poušť
+Travnatá
+Středozemní
+Savana
+Tajga
+Teplá
+Tropická
+Turnda

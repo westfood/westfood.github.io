@@ -55,6 +55,8 @@ mining -> smelting -> casting -> ingots -> products
 
 ## Těžba 
 
+[Patterns of early metallurgy on the Iranian Plateau, from the beginnings to the end of the Bronze Age](https://books.openedition.org/momeditions/12567?lang=en)
+
 ### Poznámky
 Armour, construction tools, agricultural tools, and other building materials were mostly made of iron; thus, making iron one of the most in demand metals at all times.[1] There was always a supply for iron in many parts of the Roman Empire to allow for self sufficiency.
 

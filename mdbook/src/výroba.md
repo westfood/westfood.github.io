@@ -1,5 +1,8 @@
 # Výroba
 
+Důl -> Nerost -> Pec (Foundry) -> Ingot (obchodní artikl?) -> Kovárna (Forge) -> Výrobek (obchodní artikl)
+
+nerost obsahující železo -> železný ingot -> železný výrobek
 ## Výrovní prostředky
 - Pec
 - Pila
@@ -9,6 +12,12 @@
 - Vojenská výbava
 
 ## Výbava vojáka
+
+### Poznámky k těžbe
+Mount Gabriel, v Irsku, 200 let produkce
+32.500 tun kamenů, hlušiny a rudy -> 163 tun mědi -> 146 tun měděného ingotu
+[Metallurgy during the Copper Age in Europe](https://en.wikipedia.org/wiki/Metallurgy_during_the_Copper_Age_in_Europe)
+
 
 ### Poznámky k výrobě brnění ve starověku
 Breastplate = brnění na hruď
