@@ -4,12 +4,14 @@ use control::GovernPlugin;
 use game::resources::*;
 use game::GamePlugin;
 use generate::TerraformPlugin;
+use ui::MenuControl;
 
 mod control;
 mod game;
 mod generate;
 mod gods;
 mod industry;
+mod ui;
 
 fn main() {
     App::new()
@@ -25,5 +27,6 @@ fn main() {
         .add_plugin(TerraformPlugin)
         .add_plugin(GamePlugin)
         .add_plugin(GovernPlugin)
+        .add_plugin(MenuControl)
         .run();
 }

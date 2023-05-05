@@ -1,7 +1,6 @@
 use crate::game::resources::AppState;
 use bevy::prelude::*;
 use systems::*;
-
 mod systems;
 
 pub struct GovernPlugin;
