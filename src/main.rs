@@ -1,18 +1,15 @@
 #![allow(unused)]
-// use std::{thread::current, error::Report};
-
 use bevy::prelude::*;
-use control::systems::*;
+use control::GovernPlugin;
 use game::resources::*;
-use game::systems::*;
-use std::iter::Filter;
-use world::systems::*;
+use game::GamePlugin;
+use generate::TerraformPlugin;
 
 mod control;
 mod game;
-pub mod gods;
+mod generate;
+mod gods;
 mod industry;
-mod world;
 
 fn main() {
     App::new()
@@ -25,21 +22,8 @@ fn main() {
         }))
         .init_resource::<GameState>()
         .add_state::<AppState>()
-        .add_startup_systems(
-            (
-                intro,
-                world_created,
-                apply_system_buffers,
-                game_configured,
-                generate_terrain,
-                spawn_camera,
-            )
-                .chain(),
-        )
-        .add_system(govern.in_set(OnUpdate(AppState::Govern)))
-        .add_system(camera_dragging.in_set(OnUpdate(AppState::Govern)))
-        .add_system(compute_yealds.in_schedule(OnExit(AppState::Govern)))
-        .add_system(round_system.in_schedule(OnEnter(AppState::RoundEnd)))
-        .add_system(turn_end.in_schedule(OnEnter(AppState::TurnEnd)))
+        .add_plugin(TerraformPlugin)
+        .add_plugin(GamePlugin)
+        .add_plugin(GovernPlugin)
         .run();
 }

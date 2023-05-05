@@ -47,7 +47,7 @@ pub fn camera_dragging(
     let mut window = windows.single_mut();
 
     if mouse.pressed(MouseButton::Left) {
-        window.cursor.visible = false;
+        // window.cursor.visible = false;
         for ev in ev_motion.iter() {
             let mut camera = camera.single_mut();
             camera.translation += Vec3::new(-ev.delta.x, ev.delta.y, 0.0);
