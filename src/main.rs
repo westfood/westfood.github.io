@@ -2,14 +2,17 @@
 // use std::{thread::current, error::Report};
 
 use bevy::prelude::*;
-pub mod components;
-pub mod resources;
-pub mod systems;
-
-use crate::resources::*;
-use crate::systems::*;
-
+use control::systems::*;
+use game::resources::*;
+use game::systems::*;
 use std::iter::Filter;
+use world::systems::*;
+
+mod control;
+mod game;
+pub mod gods;
+mod industry;
+mod world;
 
 fn main() {
     App::new()
