@@ -60,14 +60,14 @@ pub fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) 
             );
 
             // Snow
-            // let sand_assets = [7, 12, 13, 14, 15, 16, 17, 18];
-            // let sand_weights = [7.0, 3.0, 3.0, 3.0, 3.0, 0.1, 0.1, 0.1];
-            // let sand_dist = WeightedIndex::new(&grass_weights).unwrap();
-            // let sand_random_index = sand_dist.sample(&mut rng);
-            // let sand_id = format!(
-            //     "hexagon-pack/PNG/Tiles/Terrain/Stone/sand{:02}.png",
-            //     sand_assets[sand_random_index]
-            // );
+            let snow_assets = [1, 2, 3, 4, 5];
+            let snow_weights = [7., 3., 3., 0.1, 0.1];
+            let snow_dist = WeightedIndex::new(&snow_weights).unwrap();
+            let snow_random_index = snow_dist.sample(&mut rng);
+            let snow_id = format!(
+                "hexagon-holiday-pack/PNG/Hexagon pack/Default size/hexagonTile_{:02}.png",
+                snow_assets[snow_random_index]
+            );
 
             let y: f32 = y as f32;
             let tile_y: f32 = y * TILE_HEIGHT;
@@ -78,8 +78,7 @@ pub fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) 
                 commands.spawn(
                     (SpriteBundle {
                         transform: Transform::from_xyz(tile_x, tile_y, 0.0),
-                        texture: asset_server
-                            .load("hexagon-pack/PNG/Tiles/Terrain/Stone/stone_07.png"),
+                        texture: asset_server.load(snow_id),
                         ..default()
                     }),
                 );
