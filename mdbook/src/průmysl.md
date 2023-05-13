@@ -55,6 +55,21 @@ mining -> smelting -> casting -> ingots -> products
 
 ## Těžba 
 
+První těžba rud byla povrchová nebo jeskynní. Ve lví jeskyni se odhadem vytěžilo až tisíc tun bylo vytěženo.
+
+Fáze těžby /metry jsou jen můj nástřel
+- sběr na povrchu
+- mělké jámy (2 metry)
+- hlubší jámy (4-6 metrů)
+- podpovrchová těžba
+- šachty a podzemní těžba
+
+Předmět těžby
+- pazourky
+- spekularit (železná slída, šupinatý hematit Fe2O3) -> okrové barvivo pro malbu, barvení pokožky, rituály 
+
+
+
 ### Poznámky
 Armour, construction tools, agricultural tools, and other building materials were mostly made of iron; thus, making iron one of the most in demand metals at all times.[1] There was always a supply for iron in many parts of the Roman Empire to allow for self sufficiency.
 
