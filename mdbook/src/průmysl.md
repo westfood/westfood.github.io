@@ -55,6 +55,8 @@ mining -> smelting -> casting -> ingots -> products
 
 ## Těžba 
 
+### Pravěk
+
 První těžba rud byla povrchová nebo jeskynní. Ve lví jeskyni se odhadem vytěžilo až tisíc tun bylo vytěženo.
 
 Fáze těžby /metry jsou jen můj nástřel
@@ -65,9 +67,13 @@ Fáze těžby /metry jsou jen můj nástřel
 - šachty a podzemní těžba
 
 Předmět těžby
+- obsidián (ostrý, dal se vyhladit aby odrážel obraz, předměty) - výskyt kolem vuklkánů
+	- mix dřeva a obsidianu -> [Macuahuitl](https://en.wikipedia.org/wiki/Macuahuitl)
+		- Obsidian is capable of producing an edge sharper than high quality steel razor blades. The macuahuitl was a standard close combat weapon.
+	- jako dřevcová zbraň [Tepoztopilli](https://en.wikipedia.org/wiki/Tepoztopilli)
 - pazourky
 - spekularit (železná slída, šupinatý hematit Fe2O3) -> okrové barvivo pro malbu, barvení pokožky, rituály 
-
+	- možnosti nálezu [Páskovaná železná ruda](https://en.wikipedia.org/wiki/Banded_iron_formation)
 
 
 ### Poznámky
