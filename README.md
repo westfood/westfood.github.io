@@ -8,5 +8,5 @@ cd ./mdbook
 mdbook serve --open //otevře prohlíč s lokální verzí mdbook
 mdbook build // zkompiluje ./docs ze zdrojových markdowns
 ```
-## ./bevy
+## ./bevy
 [Bevy Engine](https://bevyengine.org/) je data-driven game engine v Rust.
