@@ -2,6 +2,7 @@ use bevy::prelude::*;
 mod components;
 mod control;
 mod gods;
+mod styles;
 use control::menu_control;
 
 pub struct MenuControl;
