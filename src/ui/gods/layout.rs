@@ -17,12 +17,21 @@ pub fn build_gods_overview(commands: &mut Commands, asset_server: &Res<AssetServ
             },
             GodOverview {},
         ))
+        .id();
+    let god_overview_entity = commands
+        .spawn(NodeBundle {
+            style: Style {
+                size: Size::new(Val::Percent(50.), Val::Percent(50.)),
+                ..default()
+            },
+            background_color: Color::GRAY.into(),
+            ..default()
+        })
         .with_children(|parent| {
-            // Title
             parent.spawn(TextBundle {
                 text: Text {
                     sections: vec![TextSection::new(
-                        "bohové holocénu",
+                        "Skřet",
                         get_title_text_style(&asset_server),
                     )],
                     alignment: TextAlignment::Center,
@@ -30,45 +39,8 @@ pub fn build_gods_overview(commands: &mut Commands, asset_server: &Res<AssetServ
                 },
                 ..default()
             });
-            // Gods
-            parent
-                .spawn(NodeBundle {
-                    style: Style {
-                        size: Size::new(Val::Percent(50.), Val::Percent(50.)),
-                        ..default()
-                    },
-                    background_color: Color::GRAY.into(),
-                    ..default()
-                })
-                .with_children(|parent| {
-                    parent.spawn(TextBundle { ..default() });
-                });
-            parent
-                .spawn(NodeBundle {
-                    style: Style {
-                        size: Size::new(Val::Percent(50.), Val::Percent(50.)),
-                        ..default()
-                    },
-                    background_color: Color::FUCHSIA.into(),
-                    ..default()
-                })
-                .with_children(|parent| {
-                    parent.spawn(TextBundle { ..default() });
-                });
-            parent
-                .spawn(NodeBundle {
-                    style: Style {
-                        size: Size::new(Val::Percent(50.), Val::Percent(50.)),
-                        ..default()
-                    },
-                    background_color: Color::GOLD.into(),
-                    ..default()
-                })
-                .with_children(|parent| {
-                    parent.spawn(TextBundle { ..default() });
-                });
-            // Resources
         })
+        .set_parent(gods_overview_entity)
         .id();
 
     gods_overview_entity
