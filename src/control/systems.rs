@@ -1,4 +1,7 @@
-use bevy::prelude::*;
+use bevy::{
+    input::mouse::{MouseScrollUnit, MouseWheel},
+    prelude::*,
+};
 
 use crate::game::resources::*;
 use crate::gods::components::*;
@@ -41,20 +44,40 @@ pub fn govern(
 pub fn camera_dragging(
     mut windows: Query<&mut Window>,
     mut ev_motion: EventReader<MouseMotion>,
+    mut ev_wheel: EventReader<MouseWheel>,
     mouse: Res<Input<MouseButton>>,
     mut camera: Query<&mut Transform, With<Camera>>,
+    mut projection: Query<&mut OrthographicProjection, With<Camera>>,
 ) {
     let mut window = windows.single_mut();
+    let mut projection = projection.single_mut();
 
     if mouse.pressed(MouseButton::Left) {
-        // window.cursor.visible = false;
+        window.cursor.visible = false;
         for ev in ev_motion.iter() {
             let mut camera = camera.single_mut();
-            camera.translation += Vec3::new(-ev.delta.x, ev.delta.y, 0.0);
+            camera.translation += Vec3::new(
+                -ev.delta.x * projection.scale,
+                ev.delta.y * projection.scale,
+                0.0,
+            );
         }
+        let current_pos = match window.cursor_position() {
+            Some(current_pos) => current_pos,
+            None => return,
+        };
     }
 
     if mouse.just_released(MouseButton::Left) {
         window.cursor.visible = true;
+    }
+    let mut zoom_amount = projection.scale;
+    for event in ev_wheel.iter() {
+        zoom_amount -= event.y.signum()
+            * match event.unit {
+                MouseScrollUnit::Line => 0.25,
+                MouseScrollUnit::Pixel => 0.1,
+            };
+        projection.scale = zoom_amount.clamp(0.25, 10.0);
     }
 }
