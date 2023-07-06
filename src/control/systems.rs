@@ -78,6 +78,6 @@ pub fn camera_dragging(
                 MouseScrollUnit::Line => 0.25,
                 MouseScrollUnit::Pixel => 0.1,
             };
-        projection.scale = zoom_amount.clamp(0.25, 10.0);
+        projection.scale = zoom_amount.clamp(1.0, 10.0);
     }
 }
