@@ -26,6 +26,8 @@ Mapa by měl být hexagonální torus, který umožňuje přelít sever do jihu 
 ## Implementace
 [Hexagonal Grid by Red Blob Games](https://www.redblobgames.com/grids/hexagons/)
 
+## Rozložení krajiny
+[Land use](https://ourworldindata.org/land-use)
 # Typ pole
 Pobřežní voda
 Oceán

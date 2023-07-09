@@ -12,3 +12,16 @@
 ### Podle vstupu
 - Low-input zemědělství - Horské terasy s rýží, rybami a kachnami
 - High-input zemědělství - Průmyslové zemědělství
+### Populace
+[Odhad světové populace](https://en.wikipedia.org/wiki/Estimates_of_historical_world_population)
+- počátek holocénu 2 000 000
+- Chalkolit - 18 000 000
+- první velká sídla
+  - 1500-3000
+- ikony populace
+  - 1k
+  - 10k
+  - 100k
+  - 1m
+  - 10m
+  - 100m 
