@@ -3,7 +3,7 @@ use bevy::prelude::*;
 use control::GovernPlugin;
 use game::resources::*;
 use game::GamePlugin;
-use generate::TerraformPlugin;
+use generate::GeneratePlugin;
 use ui::MenuControl;
 
 mod control;
@@ -11,6 +11,7 @@ mod game;
 mod generate;
 mod gods;
 mod industry;
+mod terrain;
 mod ui;
 
 fn main() {
@@ -24,7 +25,7 @@ fn main() {
         }))
         .init_resource::<GameState>()
         .add_state::<AppState>()
-        .add_plugin(TerraformPlugin)
+        .add_plugin(GeneratePlugin)
         .add_plugin(GamePlugin)
         .add_plugin(GovernPlugin)
         .add_plugin(MenuControl)

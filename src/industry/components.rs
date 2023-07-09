@@ -97,6 +97,23 @@ impl Foundry {
 }
 
 #[derive(Component, Debug)]
+pub struct Settlement {
+    name: String,
+    population: u32,
+    asset_id: String,
+}
+
+impl Settlement {
+    pub fn new() -> Settlement {
+        Settlement {
+            name: "Settlement".to_string(),
+            asset_id: format!("hexagon-pack/PNG/Tiles/Medieval/medieval_cabin.png"),
+            population: 3000,
+        }
+    }
+}
+
+#[derive(Component, Debug)]
 pub struct Storage {
     name: String,
 }

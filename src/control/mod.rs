@@ -8,6 +8,6 @@ pub struct GovernPlugin;
 impl Plugin for GovernPlugin {
     fn build(&self, app: &mut App) {
         app.add_system(govern.in_set(OnUpdate(AppState::Govern)))
-            .add_system(camera_dragging.in_set(OnUpdate(AppState::Govern)));
+            .add_system(camera_control.in_set(OnUpdate(AppState::Govern)));
     }
 }

@@ -1,14 +1,14 @@
-use antropocene::world_created;
+use antropocene::*;
 use bevy::prelude::*;
-use terrain::generate_terrain;
+use map::generate_terrain;
 
 mod antropocene;
-mod terrain;
+mod map;
 
-pub struct TerraformPlugin;
+pub struct GeneratePlugin;
 
-impl Plugin for TerraformPlugin {
+impl Plugin for GeneratePlugin {
     fn build(&self, app: &mut App) {
-        app.add_startup_systems((generate_terrain, world_created).chain());
+        app.add_startup_systems((generate_terrain, gods_created, industry_created).chain());
     }
 }

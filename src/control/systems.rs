@@ -6,6 +6,7 @@ use bevy::{
 use crate::game::resources::*;
 use crate::gods::components::*;
 use crate::industry::components::*;
+use crate::terrain::components::*;
 
 use bevy::{
     input::mouse::MouseMotion,
@@ -23,6 +24,11 @@ pub fn govern(
     iron_yeald: Query<(&IronYeald)>,
     copper_yeald: Query<&CopperYeald>,
     tin_yeald: Query<&TinYeald>,
+    // terrain: Query<Entity, &Grassland>,
+    grassland: Query<&Grassland>,
+    desert: Query<&Desert>,
+    tundra: Query<&Tundra>,
+    snow: Query<&Snow>,
     mut next_state: ResMut<NextState<AppState>>,
 ) {
     // TODO Implement also Numeric Enter
@@ -39,9 +45,19 @@ pub fn govern(
         let iron_sum: u32 = iron_yeald.iter().map(|yeald| yeald.value).sum();
         println!("Plánová težba bronzu: {copper_sum}, cínu: {tin_sum}, železa: {iron_sum}");
     }
+    if keyboard_input.just_released(KeyCode::T) {
+        // grassland.for_each(|title| println!("{:?}", title));
+        let grassland: usize = grassland.iter().count();
+        let desert: usize = desert.iter().count();
+        let tundra: usize = tundra.iter().count();
+        let snow: usize = snow.iter().count();
+        println!(
+            "Grassland: \t{grassland}\nDesert: \t{desert}\nTundra: \t{tundra}\nSnow: \t\t{snow}"
+        );
+    }
 }
 
-pub fn camera_dragging(
+pub fn camera_control(
     mut windows: Query<&mut Window>,
     mut ev_motion: EventReader<MouseMotion>,
     mut ev_wheel: EventReader<MouseWheel>,

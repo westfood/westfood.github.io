@@ -2,10 +2,10 @@ use crate::gods::components::*;
 use crate::industry::components::*;
 use bevy::prelude::*;
 
-pub fn world_created(mut commands: Commands, gods: Query<&God>) {
+pub fn gods_created(mut commands: Commands) {
     commands.spawn_batch(vec![
         God {
-            name: "Rudolf".to_string(),
+            name: "Hráč".to_string(),
             alive: true,
         },
         God {
@@ -25,6 +25,12 @@ pub fn world_created(mut commands: Commands, gods: Query<&God>) {
             alive: true,
         },
     ]);
+    info!("Bohové stvořeni!");
+}
+
+pub fn industry_created(mut commands: Commands, gods: Query<&God>) {
+    println!("{gods:#?}");
+    gods.for_each(|god| println! {"{god:#?}"});
     commands.spawn((Mine::new(MineTypes::Copper), CopperYeald { value: 3 }));
     commands.spawn(Furnace::new());
     commands.spawn(Forge::new());
@@ -36,5 +42,5 @@ pub fn world_created(mut commands: Commands, gods: Query<&God>) {
     // commands.spawn((Mine{ name: "Tin Yeald".to_string()}, TinYeald{value: 1}, TinMaxCapacity{value: 10}));
     // commands.spawn((Mine{ name: "Copper Yeald".to_string()}, CopperYeald{value: 2}));
     // commands.spawn((Storage{ name: "Storage".to_string()}, CopperMaxCapacity{value: 50}));
-    info!("Antropocén vytvořen!");
+    info!("Průmysl stvořen!");
 }

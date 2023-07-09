@@ -1,5 +1,6 @@
 use bevy::prelude::*;
 
+use crate::terrain::components::*;
 use rand::{distributions::WeightedIndex, prelude::*};
 // use bevy_ecs::schedule::Schedules;
 // use bevy::input::ButtonState;
@@ -75,42 +76,50 @@ pub fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) 
 
             if y_region <= 3 || y_region >= MAP_HEIGHT - 3 {
                 // SNOW
-                commands.spawn(
-                    (SpriteBundle {
+                commands.spawn((
+                    SpriteBundle {
                         transform: Transform::from_xyz(tile_x, tile_y, 0.0),
                         texture: asset_server.load(snow_id),
                         ..default()
-                    }),
-                );
+                    },
+                    Snow {},
+                    Terrain {},
+                ));
             } else if (y_region >= 4 && y_region <= 15)
                 || (y_region >= MAP_HEIGHT - 15 && y_region <= MAP_HEIGHT - 4)
             {
                 // TUNDRA
-                commands.spawn(
-                    (SpriteBundle {
+                commands.spawn((
+                    SpriteBundle {
                         transform: Transform::from_xyz(tile_x, tile_y, 0.0),
                         texture: asset_server.load(tundra_id),
                         ..default()
-                    }),
-                );
+                    },
+                    Tundra {},
+                    Terrain {},
+                ));
             } else if y_region >= MAP_HEIGHT / 2 - 5 && y_region <= MAP_HEIGHT / 2 + 5 {
                 // DESERT
-                commands.spawn(
-                    (SpriteBundle {
+                commands.spawn((
+                    SpriteBundle {
                         transform: Transform::from_xyz(tile_x, tile_y, 0.0),
                         texture: asset_server.load(sand_id),
                         ..default()
-                    }),
-                );
+                    },
+                    Desert {},
+                    Terrain {},
+                ));
             } else {
                 // GRASS
-                commands.spawn(
-                    (SpriteBundle {
+                commands.spawn((
+                    SpriteBundle {
                         transform: Transform::from_xyz(tile_x, tile_y, 0.0),
                         texture: asset_server.load(grass_id),
                         ..default()
-                    }),
-                );
+                    },
+                    Grassland {},
+                    Terrain {},
+                ));
             }
         }
     }

@@ -6,7 +6,7 @@ use crate::gods::components::*;
 use crate::industry::components::*;
 
 pub fn intro() {
-    println!("Budiž ti je svěřená civilizace plátnem tvojí duše.");
+    println!("Svěřená civilizace je plátnem tvojí duše.");
 }
 
 pub fn game_configured(gods: Query<&God>, mut game_state: ResMut<GameState>) {
