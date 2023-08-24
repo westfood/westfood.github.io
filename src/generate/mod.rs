@@ -9,6 +9,6 @@ pub struct GeneratePlugin;
 
 impl Plugin for GeneratePlugin {
     fn build(&self, app: &mut App) {
-        app.add_startup_systems((generate_terrain, gods_created, industry_created).chain());
+        app.add_startup_systems((generate_terrain, gods_created, apply_system_buffers, industry_created).chain());
     }
 }

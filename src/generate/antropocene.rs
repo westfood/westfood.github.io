@@ -30,17 +30,13 @@ pub fn gods_created(mut commands: Commands) {
 
 pub fn industry_created(mut commands: Commands, gods: Query<&God>) {
     println!("{gods:#?}");
-    gods.for_each(|god| println! {"{god:#?}"});
-    commands.spawn((Mine::new(MineTypes::Copper), CopperYeald { value: 3 }));
+    gods.for_each(|god| {
+        commands.spawn((Mine::new(MineTypes::Copper, 3 ,god.name())));
+        commands.spawn((Storage::new(god.name())));
+    }
+    );
     commands.spawn(Furnace::new());
     commands.spawn(Forge::new());
     commands.spawn(Foundry::new());
-    // commands.spawn((Mine::new("Copper"), IronYeald{value: 3}));
-    // commands.spawn((Mine::new("Tin"), IronYeald{value: 1}));
-    // commands.spawn((Mine{ name: "Iron Mine".to_string()}, IronYeald{value: 3}, IronMaxCapacity{value: 10}));
-    // commands.spawn((Mine{ name: "Iron Mine".to_string()}, IronYeald{value: 2}, IronMaxCapacity{value: 10}));
-    // commands.spawn((Mine{ name: "Tin Yeald".to_string()}, TinYeald{value: 1}, TinMaxCapacity{value: 10}));
-    // commands.spawn((Mine{ name: "Copper Yeald".to_string()}, CopperYeald{value: 2}));
-    // commands.spawn((Storage{ name: "Storage".to_string()}, CopperMaxCapacity{value: 50}));
     info!("Průmysl stvořen!");
 }

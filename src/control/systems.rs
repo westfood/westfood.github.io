@@ -21,10 +21,7 @@ pub fn govern(
     mut commands: Commands,
     keyboard_input: Res<Input<KeyCode>>,
     mut game: ResMut<GameState>,
-    iron_yeald: Query<(&IronYeald)>,
-    copper_yeald: Query<&CopperYeald>,
-    tin_yeald: Query<&TinYeald>,
-    // terrain: Query<Entity, &Grassland>,
+    mines: Query<&Mine>,
     grassland: Query<&Grassland>,
     desert: Query<&Desert>,
     tundra: Query<&Tundra>,
@@ -40,10 +37,10 @@ pub fn govern(
         next_state.set(AppState::RoundEnd)
     }
     if keyboard_input.just_released(KeyCode::Space) {
-        let copper_sum: u32 = copper_yeald.iter().map(|yeald| yeald.value).sum();
-        let tin_sum: u32 = tin_yeald.iter().map(|yeald| yeald.value).sum();
-        let iron_sum: u32 = iron_yeald.iter().map(|yeald| yeald.value).sum();
-        println!("Plánová težba bronzu: {copper_sum}, cínu: {tin_sum}, železa: {iron_sum}");
+        let mines = mines.iter().filter(|mine| mine.owner == game.governing_god);
+        for mine in mines {
+            println!("{}'s {} yealds: {}", mine.owner, mine.name, mine.yeald);
+        }
     }
     if keyboard_input.just_released(KeyCode::T) {
         // grassland.for_each(|title| println!("{:?}", title));

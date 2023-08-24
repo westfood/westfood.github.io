@@ -31,7 +31,11 @@ pub fn compute_yealds(
     iron_yeald: Query<&IronYeald>,
     copper_yeald: Query<&CopperYeald>,
     tin_yeald: Query<&TinYeald>,
+    mines: Query<&Mine>,
+    game: Res<GameState>,
 ) {
+    let mines = mines.iter().filter(|mine| mine.owner == game.governing_god);
+    mines.for_each(|mine| mine.add_yeald());
     let copper_sum: u32 = copper_yeald.iter().map(|yeald| yeald.value).sum();
     let tin_sum: u32 = tin_yeald.iter().map(|yeald| yeald.value).sum();
     let iron_sum: u32 = iron_yeald.iter().map(|yeald| yeald.value).sum();

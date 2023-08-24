@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+// use crate::gods::components::*;
 
 #[derive(Component, Debug)]
 pub struct IronYeald {
@@ -15,6 +16,7 @@ pub struct TinYeald {
     pub value: u32,
 }
 
+#[derive(Debug)]
 pub enum MineTypes {
     Iron,
     Tin,
@@ -35,26 +37,47 @@ impl MineTypes {
             MineTypes::Tin => String::from("Tin Mine"),
         }
     }
+    pub fn kind(&self) -> String {
+        match self {
+            MineTypes::Iron => String::from("Iron"),
+            MineTypes::Copper => String::from("Copper"),
+            MineTypes::Tin => String::from("Tin"),
+        }
+    }
 }
 
 #[derive(Component, Debug)]
 pub struct Mine {
-    name: String,
+    pub name: String,
+    pub kind: String,
     asset_id: String,
+    pub owner: String,
+    pub yeald: u32,
+    pub storage: u32,
 }
 
+
 impl Mine {
-    pub fn new(mine_type: MineTypes) -> Mine {
+    pub fn new(mine_type: MineTypes, yeald: u32, god: String) -> Mine {
         if mine_type.is_valid() {
-            info!("Spawning {}", mine_type.name());
+            info!("Spawning {} for {}", mine_type.name(), god);
             {
                 Mine {
                     name: mine_type.name(),
+                    kind: mine_type.kind(),
                     asset_id: format!("hexagon-pack/PNG/Tiles/Medieval/medieval_mine.png"),
+                    owner: god,
+                    yeald: yeald,
+                    storage: 0
                 }
             }
         } else {
             panic!("Wrong Mine Type")
+        }
+    }
+    pub fn add_yeald(&self) {
+        match self {
+            _ => todo!(),
         }
     }
 }
@@ -116,4 +139,16 @@ impl Settlement {
 #[derive(Component, Debug)]
 pub struct Storage {
     name: String,
+    owner: String,
+}
+
+impl Storage {
+    pub fn new(god: String) -> Storage {
+        info!("Spawning Storage for {god}");
+        Storage {
+            name: String::from("Storage"),
+            owner: god
+        }
+
+    }
 }
