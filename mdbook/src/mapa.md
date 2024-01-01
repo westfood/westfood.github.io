@@ -12,6 +12,8 @@ Mapa by měl být hexagonální torus, který umožňuje přelít sever do jihu 
     - 3840x2160
     - 4096x2160
 
+- pokud je 1 hex grid 10 km, tak je také 1000 ha. A planeta má 1000 km vertiákně a horizontálně.
+
 # Humankind 2560x1080
 - nejvyší přiblížení je 12 grids vertikálně
 - největší oddálení kdy je vidět krajina - 18 grids, sedm kroků
