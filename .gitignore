@@ -1,2 +1,6 @@
-bevy/target
+target/
+Cargo.lock
+.DS_Store
 
+# Blender backups
+*.blend1
