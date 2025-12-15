@@ -4,6 +4,7 @@ use bevy::window::PrimaryWindow;
 use super::resources::*;
 use crate::gods::components::*;
 use crate::industry::components::*;
+use crate::industry::systems::report_yeald;
 
 pub fn intro() {
     println!("Svěřená civilizace je plátnem tvojí duše.");
@@ -26,21 +27,8 @@ pub fn game_configured(gods: Query<&God>, mut game_state: ResMut<GameState>) {
     info!("Pravidla Antropocénu stvořena!");
 }
 
-pub fn compute_yealds(
-    mut next_state: ResMut<NextState<AppState>>,
-    iron_yeald: Query<&IronYeald>,
-    copper_yeald: Query<&CopperYeald>,
-    tin_yeald: Query<&TinYeald>,
-    mines: Query<&Mine>,
-    game: Res<GameState>,
-) {
-    let mines = mines.iter().filter(|mine| mine.owner == game.governing_god);
-    mines.for_each(|mine| mine.add_yeald());
-    let copper_sum: u32 = copper_yeald.iter().map(|yeald| yeald.value).sum();
-    let tin_sum: u32 = tin_yeald.iter().map(|yeald| yeald.value).sum();
-    let iron_sum: u32 = iron_yeald.iter().map(|yeald| yeald.value).sum();
-    println!("Vytěženo mědi: {copper_sum}, cínu: {tin_sum}, železa: {iron_sum}");
-    info!("Vzniklé bohatství sečteno!");
+pub fn compute_yealds(mut next_state: ResMut<NextState<AppState>>, query: Query<&Yield>) {
+    report_yeald(query);
     next_state.set(AppState::Govern);
 }
 

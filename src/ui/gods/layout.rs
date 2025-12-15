@@ -8,7 +8,7 @@ pub fn build_gods_overview(commands: &mut Commands, asset_server: &Res<AssetServ
         .spawn((
             NodeBundle {
                 style: Style {
-                    size: Size::new(Val::Px(500.), Val::Px(200.)),
+                    // size: Size::new(Val::Px(500.), Val::Px(200.)),
                     justify_content: JustifyContent::Center,
                     ..default()
                 },
@@ -21,7 +21,7 @@ pub fn build_gods_overview(commands: &mut Commands, asset_server: &Res<AssetServ
     let god_overview_entity = commands
         .spawn(NodeBundle {
             style: Style {
-                size: Size::new(Val::Percent(50.), Val::Percent(50.)),
+                // size: Size::new(Val::Percent(50.), Val::Percent(50.)),
                 ..default()
             },
             background_color: Color::GRAY.into(),

@@ -1,5 +1,7 @@
 #![allow(unused)]
+use bevy::input::common_conditions::input_toggle_active;
 use bevy::prelude::*;
+use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use control::GovernPlugin;
 use game::resources::*;
 use game::GamePlugin;
@@ -25,9 +27,12 @@ fn main() {
         }))
         .init_resource::<GameState>()
         .add_state::<AppState>()
-        .add_plugin(GeneratePlugin)
-        .add_plugin(GamePlugin)
-        .add_plugin(GovernPlugin)
-        .add_plugin(MenuControl)
+        .add_plugins((
+            GeneratePlugin,
+            GamePlugin,
+            GovernPlugin,
+            MenuControl,
+            WorldInspectorPlugin::default().run_if(input_toggle_active(true, KeyCode::Escape)),
+        ))
         .run();
 }

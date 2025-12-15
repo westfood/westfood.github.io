@@ -3,14 +3,13 @@ use bevy::{
     prelude::*,
 };
 
-use crate::game::resources::*;
 use crate::gods::components::*;
 use crate::industry::components::*;
 use crate::terrain::components::*;
+use crate::{game::resources::*, industry::systems::report_yeald};
 
 use bevy::{
     input::mouse::MouseMotion,
-    pbr::RenderLightSystems,
     prelude::*,
     reflect::Tuple,
     sprite::queue_material2d_meshes,
@@ -21,11 +20,12 @@ pub fn govern(
     mut commands: Commands,
     keyboard_input: Res<Input<KeyCode>>,
     mut game: ResMut<GameState>,
-    mines: Query<&Mine>,
+    // terrain: Query<Entity, &Grassland>,
     grassland: Query<&Grassland>,
     desert: Query<&Desert>,
     tundra: Query<&Tundra>,
     snow: Query<&Snow>,
+    query: Query<&Yield>,
     mut next_state: ResMut<NextState<AppState>>,
 ) {
     // TODO Implement also Numeric Enter
@@ -37,10 +37,7 @@ pub fn govern(
         next_state.set(AppState::RoundEnd)
     }
     if keyboard_input.just_released(KeyCode::Space) {
-        let mines = mines.iter().filter(|mine| mine.owner == game.governing_god);
-        for mine in mines {
-            println!("{}'s {} yealds: {}", mine.owner, mine.name, mine.yeald);
-        }
+        report_yeald(query);
     }
     if keyboard_input.just_released(KeyCode::T) {
         // grassland.for_each(|title| println!("{:?}", title));
@@ -67,7 +64,7 @@ pub fn camera_control(
 
     if mouse.pressed(MouseButton::Left) {
         window.cursor.visible = false;
-        for ev in ev_motion.iter() {
+        for ev in ev_motion.read() {
             let mut camera = camera.single_mut();
             camera.translation += Vec3::new(
                 -ev.delta.x * projection.scale,
@@ -85,7 +82,7 @@ pub fn camera_control(
         window.cursor.visible = true;
     }
     let mut zoom_amount = projection.scale;
-    for event in ev_wheel.iter() {
+    for event in ev_wheel.read() {
         zoom_amount -= event.y.signum()
             * match event.unit {
                 MouseScrollUnit::Line => 0.25,

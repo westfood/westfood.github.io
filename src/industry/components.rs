@@ -1,28 +1,36 @@
-use bevy::prelude::*;
-// use crate::gods::components::*;
+use std::collections::HashMap;
 
-#[derive(Component, Debug)]
-pub struct IronYeald {
-    pub value: u32,
+use bevy::{prelude::*, transform::commands};
+
+#[derive(Debug, Hash, Eq, PartialEq, Clone, Copy, Reflect)]
+pub enum YieldType {
+    Iron,
+    Copper,
+    Tin,
 }
 
-#[derive(Component, Debug)]
-pub struct CopperYeald {
-    pub value: u32,
+#[derive(Component, Reflect, Debug)]
+pub struct Yield {
+    pub yields: HashMap<YieldType, u32>,
 }
 
-#[derive(Component, Debug)]
-pub struct TinYeald {
-    pub value: u32,
+impl Yield {
+    pub fn new() -> Self {
+        Yield {
+            yields: HashMap::new(),
+        }
+    }
+    pub fn add_yield(&mut self, resource: YieldType, amount: u32) {
+        self.yields.insert(resource, amount);
+    }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Reflect)]
 pub enum MineTypes {
     Iron,
     Tin,
     Copper,
 }
-
 impl MineTypes {
     fn is_valid(&self) -> bool {
         match self {
@@ -30,6 +38,7 @@ impl MineTypes {
             _ => false,
         }
     }
+
     pub fn name(&self) -> String {
         match self {
             MineTypes::Iron => String::from("Iron Mine"),
@@ -37,47 +46,26 @@ impl MineTypes {
             MineTypes::Tin => String::from("Tin Mine"),
         }
     }
-    pub fn kind(&self) -> String {
-        match self {
-            MineTypes::Iron => String::from("Iron"),
-            MineTypes::Copper => String::from("Copper"),
-            MineTypes::Tin => String::from("Tin"),
-        }
-    }
 }
 
-#[derive(Component, Debug)]
+#[derive(Component, Debug, Reflect)]
 pub struct Mine {
-    pub name: String,
-    pub kind: String,
+    name: String,
     asset_id: String,
-    pub owner: String,
-    pub yeald: u32,
-    pub storage: u32,
 }
-
 
 impl Mine {
-    pub fn new(mine_type: MineTypes, yeald: u32, god: String) -> Mine {
+    pub fn new(mine_type: &MineTypes) -> Mine {
         if mine_type.is_valid() {
-            info!("Spawning {} for {}", mine_type.name(), god);
+            info!("Spawning {}", mine_type.name());
             {
                 Mine {
                     name: mine_type.name(),
-                    kind: mine_type.kind(),
                     asset_id: format!("hexagon-pack/PNG/Tiles/Medieval/medieval_mine.png"),
-                    owner: god,
-                    yeald: yeald,
-                    storage: 0
                 }
             }
         } else {
             panic!("Wrong Mine Type")
-        }
-    }
-    pub fn add_yeald(&self) {
-        match self {
-            _ => todo!(),
         }
     }
 }
@@ -139,16 +127,4 @@ impl Settlement {
 #[derive(Component, Debug)]
 pub struct Storage {
     name: String,
-    owner: String,
-}
-
-impl Storage {
-    pub fn new(god: String) -> Storage {
-        info!("Spawning Storage for {god}");
-        Storage {
-            name: String::from("Storage"),
-            owner: god
-        }
-
-    }
 }

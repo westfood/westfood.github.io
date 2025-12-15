@@ -84,6 +84,7 @@ pub fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) 
                     },
                     Snow {},
                     Terrain {},
+                    Name::new("Snow"),
                 ));
             } else if (y_region >= 4 && y_region <= 15)
                 || (y_region >= MAP_HEIGHT - 15 && y_region <= MAP_HEIGHT - 4)
@@ -97,6 +98,7 @@ pub fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) 
                     },
                     Tundra {},
                     Terrain {},
+                    Name::new("Tundra"),
                 ));
             } else if y_region >= MAP_HEIGHT / 2 - 5 && y_region <= MAP_HEIGHT / 2 + 5 {
                 // DESERT
@@ -108,6 +110,7 @@ pub fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) 
                     },
                     Desert {},
                     Terrain {},
+                    Name::new("Desert"),
                 ));
             } else {
                 // GRASS
@@ -119,6 +122,7 @@ pub fn generate_terrain(asset_server: Res<AssetServer>, mut commands: Commands) 
                     },
                     Grassland {},
                     Terrain {},
+                    Name::new("Grassland"),
                 ));
             }
         }

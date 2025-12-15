@@ -1,13 +1,14 @@
 [package]
-name = "bevy_civilizace"
-version = "0.1.0"
 authors = ["Rudolf Kreibich <westfood@gmail.com>"]
 edition = "2021"
+name = "bevy_civilizace"
+version = "0.1.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bevy = { version = "0.10.0", features = ["dynamic_linking"]}
+bevy = {version = "0.12.0", features = ["dynamic_linking"]}
+bevy-inspector-egui = "0.21"
 rand = "0.8.5"
 wave-function-collapse = "0.1.2"
 # Use for for release
@@ -22,7 +23,6 @@ opt-level = 1
 # Optional: Uncommenting the following improves compile times, but reduces the amount of debug info to 'line number tables only'
 # In most cases the gains are negligible, but if you are on macos and have slow compile times you should see significant gains.
 #debug = 1
-
 
 # Enable high optimizations for dependencies (incl. Bevy), but not for our code:
 [profile.dev.package."*"]

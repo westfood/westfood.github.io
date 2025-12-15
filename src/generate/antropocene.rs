@@ -1,5 +1,6 @@
 use crate::gods::components::*;
 use crate::industry::components::*;
+use crate::industry::systems::*;
 use bevy::prelude::*;
 
 pub fn gods_created(mut commands: Commands) {
@@ -28,15 +29,8 @@ pub fn gods_created(mut commands: Commands) {
     info!("Bohové stvořeni!");
 }
 
-pub fn industry_created(mut commands: Commands, gods: Query<&God>) {
-    println!("{gods:#?}");
-    gods.for_each(|god| {
-        commands.spawn((Mine::new(MineTypes::Copper, 3 ,god.name())));
-        commands.spawn((Storage::new(god.name())));
-    }
-    );
-    commands.spawn(Furnace::new());
-    commands.spawn(Forge::new());
-    commands.spawn(Foundry::new());
-    info!("Průmysl stvořen!");
+pub fn industry_created(mut commands: Commands) {
+    create_industry(&mut commands, &MineTypes::Copper, 5);
+    create_industry(&mut commands, &MineTypes::Tin, 3);
+    create_industry(&mut commands, &MineTypes::Iron, 3);
 }

@@ -9,6 +9,6 @@ pub struct MenuControl;
 
 impl Plugin for MenuControl {
     fn build(&self, app: &mut App) {
-        app.add_system(menu_control);
+        app.add_systems(Update, menu_control);
     }
 }

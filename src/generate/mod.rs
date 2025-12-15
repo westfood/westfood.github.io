@@ -1,3 +1,4 @@
+use crate::industry::components::{Mine, Yield};
 use antropocene::*;
 use bevy::prelude::*;
 use map::generate_terrain;
@@ -9,6 +10,11 @@ pub struct GeneratePlugin;
 
 impl Plugin for GeneratePlugin {
     fn build(&self, app: &mut App) {
-        app.add_startup_systems((generate_terrain, gods_created, apply_system_buffers, industry_created).chain());
+        app.add_systems(
+            Startup,
+            (generate_terrain, gods_created, industry_created).chain(),
+        )
+        .register_type::<Mine>()
+        .register_type::<Yield>();
     }
 }
