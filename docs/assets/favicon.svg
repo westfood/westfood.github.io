@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#f6f2e8"/>
-  <path d="M0 54h64v10H0z" fill="#054abf"/>
-  <text x="6" y="44" fill="#090a0b" font-family="Impact,Arial Narrow,sans-serif" font-size="40" font-weight="700" letter-spacing="-3">RK</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#090a0b"/><path d="M15 18l14 14-14 14M37 45h15" fill="none" stroke="#f6f2e8" stroke-width="8" stroke-linejoin="miter"/></svg>
