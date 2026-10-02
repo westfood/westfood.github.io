@@ -1,234 +1,246 @@
-<!DOCTYPE HTML>
-<html lang="cz" class="light" dir="ltr">
-    <head>
-        <!-- Book generated using mdBook -->
-        <meta charset="UTF-8">
-        <title>Úvod - Poznámky ke hře kterou nikdy nevytvořím.</title>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2e8">
+  <title>Rudolf Kreibich — Cloud, Platform & Agent Engineering</title>
+  <meta name="description" content="Rudolf Kreibich. Cloud, platform and agent engineering & operations. Enterprise scale, startup velocity and public-service responsibility. Based in Prague.">
+  <link rel="canonical" href="https://iam.itchy.cz/">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Rudolf Kreibich — Cloud, Platform & Agent Engineering">
+  <meta property="og:description" content="I enjoy helping agents manage dramas of computing machines. Cloud, platform and agent engineering & operations, from Prague.">
+  <meta property="og:url" content="https://iam.itchy.cz/">
+  <meta property="og:image" content="https://iam.itchy.cz/assets/rudolf-kreibich.jpg">
+  <meta property="og:image:alt" content="Portrait of Rudolf Kreibich">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="533">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/rajdhani-medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
 
+  <header class="site-header">
+    <nav class="navigation shell" aria-label="Main navigation">
+      <a class="wordmark" href="#top">Rudolf Kreibich <span>/ Engineering & Operations</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#career">Career</a>
+        <a href="#side-quests">Side quests</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cv" href="assets/rudolf-kreibich-cv.pdf" download="Rudolf Kreibich - CV.pdf">CV <span aria-hidden="true">↓</span></a>
+      </div>
+    </nav>
+  </header>
 
-        <!-- Custom HTML head -->
-        
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff">
-
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
-
-        <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
-
-        <!-- Custom theme stylesheets -->
-
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
-        <!-- Provide site root to javascript -->
-        <script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script>
-            try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
-
-                if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
-                }
-            } catch (e) { }
-        </script>
-
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script>
-            var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('light')
-            html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
-        </script>
-
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
-
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script>
-            var body = document.querySelector('body');
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            } else {
-                sidebar = 'hidden';
-            }
-            sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="úvod.html" class="active">Úvod</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Poznámky k válce</div></li><li class="chapter-item expanded "><a href="průmysl.html"><strong aria-hidden="true">2.</strong> Průmysl</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="suroviny.html"><strong aria-hidden="true">2.1.</strong> Suroviny</a></li><li class="chapter-item expanded "><a href="výroba.html"><strong aria-hidden="true">2.2.</strong> Výroba</a></li><li class="chapter-item expanded "><a href="průmysl-data.html"><strong aria-hidden="true">2.3.</strong> Komponenty</a></li></ol></li><li class="chapter-item expanded "><a href="populace.html"><strong aria-hidden="true">3.</strong> Populace</a></li><li class="chapter-item expanded "><a href="vojsko.html"><strong aria-hidden="true">4.</strong> Vojsko</a></li><li class="chapter-item expanded "><a href="mapa.html"><strong aria-hidden="true">5.</strong> Mapa</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
-        </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
-        <div id="page-wrapper" class="page-wrapper">
-
-            <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
-                    <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
-                        </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                        </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-
-                    <h1 class="menu-title">Poznámky ke hře kterou nikdy nevytvořím.</h1>
-
-                    <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
-                        </a>
-
-                    </div>
-                </div>
-
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                    </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
-
-                <div id="content" class="content">
-                    <main>
-                        <h1 id="Úvod"><a class="header" href="#Úvod">Úvod</a></h1>
-<p>Tohle jsou poznámky ke hře kterou nikdy nevytvořím, ale nad kterou rozjímám. Tohle je protkol boje který skončí prohrou.</p>
-<h2 id="nejistota-přežití-druhu"><a class="header" href="#nejistota-přežití-druhu">Nejistota přežití druhu</a></h2>
-<p>Hrám na civilizace chybí prvek úplného konce našeho druhu. Neříkám že konec našeho druhu musí být v rámci nějakých sto tisíc let existence homo sapiens sapiens v herním světě nevyhnutelný. Ale měl by být jedním z možných konců. Dříve než zamoříte planetu v Humankind, zpravidla dosáhnete vítězných podmínek. V Civlizacích se často objevuje cesta na jinou planetu, nicméně je to vyvrcholení technologického pokroku, nikoliv zoufalé vyústění pokusu zachránit antropocén. V poslední fázích her na civilziaci chybí prvek nejistoty.</p>
-<p>Je možné rozpoutat nekontrolovatelnou jadernou válku v rámci zavedené policy MAD (Mutually Assured Destruction), která od určité intenzity nezvratitelně zničí podmínky na přežití většiny populace, poslední fází pak bude imaginace post-apokalyptického světa v ruinách civilizace. Kde pozůstatky technologií a zdrojů, slouží k vytvoření nového světa - případně k novému cíli a tím je např. únik na jinou planetu. Stejně tak je možnost rozvinout průmyslovou revolucii do intenzity, jež devastuje planetu. Nemusí tak ani činit hráč, ale AI. Hráč se může jen politicky nebo vojensky AI přesvědčit o změně jeho konání. Za zvážení stojí i využití Deus Ex Machina v podobě meteoru který zasáhne herní svět a herní svět začne odpočítávat počet tahů do konce. </p>
-<h2 id="agrární-a-průmyslová-revoluce"><a class="header" href="#agrární-a-průmyslová-revoluce">Agrární a průmyslová revoluce</a></h2>
-<p>Je zbytečné se držet herního dělení na starověk, středověk, dobu železnou, klasicistní apod. Hrajeme hru z úhlu poznání člověka dnes. Největší revolucí byla průmyslová revoluce. Hráč od prvního tahu směřuje k vybudování průmyslové společnosti. Nejdřív buduje silnou agrární společnost, aby následně vytvořil průmyslovou společnost. Směr technologického rozvoje se nekliká ve stormu technologií, ten bude fungovat jen jako orientační mapa, ale výběrem činnosti které se jeho populace věnuje. Pálení hlíny časem přinese znalosti o chování kovů v ohni. Populace zabývající výběrem daní přijde s písmem. Některé znalosti se musí spojit např. laboratoři, aby se vytvořila nová znalost. Cílem je vytvořit mnoho cest k nějaké konkrétní technologii. Na hráči je aby nashromáždil investiční bohatsví k jejímu rozšíření. </p>
-<h2 id="válka-a-technologie"><a class="header" href="#válka-a-technologie">Válka a technologie</a></h2>
-<p>Luky, oštěpy, praky a nože jsou člověku známy už z doby kamené. Nemá smysl je vynalézat. Válčením se střádají znalosti jež umožní jejich další vývoj. Armády můžou být od začátku složené podle libosti. </p>
-<h2 id="jak-určit-vítěze"><a class="header" href="#jak-určit-vítěze">Jak určit vítěze</a></h2>
-<p>Jediným měřítkem úspěchu civilizace je štěstí jejich obyvatel. Populace proto potřebuje mnohem podrobnější model půsební herního světa na jejich spokojenost. Zasažení válkou, hlad, bezpečí nebo např. i životní standard. Vítězné score je kvantitavní souhrn za celou historii civilizace. Možná je i varianta, že se hodnotí souhrn všech civilizací dané hry.</p>
-<h2 id="migrace"><a class="header" href="#migrace">Migrace</a></h2>
-<p>Migrace nás provází už na genetické úrovni 400 000 000 let zpátky, když se ryby pokoušeli opaovat pevninu a stali se tak našimi předky. Každých sto tisíc let nová iterace hominoidů vyrážela z úrodných a proto přemnožených Ethiopských hor do celého světa. Dnes migrujeme z válek do bezpečnějšího prostředí, migrujeme z chudých oblastní abychom zajistili lepší podmínky našim potomkům. Migrace by měla vycházet z potřeby obyvatel. Hráč vytváří prostředí vhodně k migraci.</p>
-<h2 id="hospodářství"><a class="header" href="#hospodářství">Hospodářství</a></h2>
-<p>Myslím že Victoria 3 má dobrý hospodářský model pro hry na civilizaci. Hospodářství by mělo být simulované strojem, bez rozhodování hráče. Lidstvo je od starověku ponořeného do obchodávní napříč kontinenty. Mělo by to být motor obyvatel. Vyrábět a obchodovat. Na hráči je zajistit bezpečnostní situaci své civilizaci. Výroba a obchodu můžou fungovat i v post-apokalyptické fázi hry. Pokud chce hráč realizovat embargo, musí k jeho realizaci mít kapacitu, jak námořní tak pozemní síly. Hráč musí počítat, že těžce dosáhne abosolutního embarga. To je zvlášť důležité v úvodní fázi, kdy je důležitý cín pro výrobu mědi.</p>
-
-                    </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-
-                            <a rel="next prefetch" href="průmysl.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-
-                        <div style="clear: both"></div>
-                    </nav>
-                </div>
-            </div>
-
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-
-                    <a rel="next prefetch" href="průmysl.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-            </nav>
-
+  <main class="shell" id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="name">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 class="hero-name" id="name"><span>Rudolf</span> <span>Kreibich</span></h1>
+          <p class="hero-role"><span>Cloud / Platform / Agent</span><span>Engineering & Operations</span></p>
+          <p class="hero-tagline">I enjoy helping agents manage dramas of computing machines</p>
         </div>
+        <figure class="hero-portrait">
+          <img src="assets/rudolf-kreibich.jpg" alt="Rudolf Kreibich" width="800" height="533" fetchpriority="high">
+        </figure>
+      </div>
+      <div class="contact-strip">
+        <span class="location">Prague / Czech Republic</span>
+        <a href="https://linkedin.com/in/itchy">linkedin.com/in/itchy <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
 
+    <div class="content">
+      <section class="section intro" id="about" aria-labelledby="about-title">
+        <div class="section-label">
+          <span class="number" aria-hidden="true">01</span>
+          <h2 id="about-title">Experience<br>& Approach</h2>
+        </div>
+        <div class="intro-copy">
+          <p class="lead">Since 2011, I have focused on removing human labour from the deployment, operation, and monitoring of software across cloud and on-premises infrastructure.</p>
+          <p>Over the years I have worked in a range of technical and business roles within enterprise, startup, and public-sector organisations. The emergence of AI agents has brought me the great joy of harnessing efficiency gains while mitigating the risks of nondeterminism. I am now looking for opportunities where I can leverage my experience to develop agent-driven approaches to delivering and operating platforms in the cloud.</p>
+          <p>I am customer and delivery value oriented. I am happy to help you with platform delivery, team development and technical business infrastructure. I enjoy working as a hands-on engineer, team lead or in product development. I can bring my own approach or adapt and improve your strategy. I have learned and forgotten many technologies on my journey, but I am always open to finding and learning the best approach to the challenges ahead.</p>
+        </div>
+      </section>
 
+      <section class="section roles" aria-labelledby="roles-title">
+        <div class="section-label">
+          <span class="number" aria-hidden="true">02</span>
+          <h2 id="roles-title">Roles</h2>
+        </div>
+        <div class="cards">
+          <article class="card card-red">
+            <h3>Delivery<br>Leadership</h3>
+            <p>Build and operate platforms from initial architecture and prototyping, through delivery of automation, observability and reliability, to resilience, compliance and cost optimisation.</p>
+            <p>This includes managing vendors, roadmaps, deliverables, estimations, presentations and all the work related to the delivery.</p>
+          </article>
+          <article class="card card-blue">
+            <h3>Team<br>Leadership</h3>
+            <p>Develop and nurture an open, value-driven engineering culture striving for autonomy, ownership and collaboration as a foundation for an excellent delivery-oriented team.</p>
+            <p>I am used to working with cross-site teams across timezones stretching from California to India. I mitigate the silo mindset by establishing joint ventures with different teams to align on a common set of goals serving the customers.</p>
+          </article>
+          <article class="card card-pale">
+            <h3>Product<br>Owner</h3>
+            <p>Delivery naturally feeds understanding of the target consumer community, power users and stakeholders. User experience problems, missing capabilities and recurring issues create an opportunity to focus on valuable deliverables.</p>
+            <p>I act on these findings, assess the wider impact of the new features and develop a user-facing roadmap to continuously improve the value of the platform to users and stakeholders.</p>
+          </article>
+        </div>
+      </section>
 
+      <section class="career-section" id="career" aria-labelledby="career-title">
+        <header class="section-banner">
+          <span class="number" aria-hidden="true">03</span>
+          <div>
+            <h2 id="career-title">Career Highlights</h2>
+            <p>Enterprise scale, startup velocity and public-service responsibility.</p>
+          </div>
+          <div class="banner-block" aria-hidden="true"></div>
+        </header>
+        <div class="work-grid">
+          <div>
+            <article class="career-entry">
+              <div class="entry-heading">
+                <h3>WAYPOINT TECH INC. <span>/ Startup</span></h3>
+                <span class="entry-date"><time datetime="2026-02">Feb 2026</time>–Now</span>
+              </div>
+              <h4 class="entry-role">Owner of Agent-first DevOps & Cloud Engineering, Agent Operations</h4>
+              <p>Waypoint was my ticket to experience agent-driven product delivery first-hand. I took over the CTO’s Cloud & DevOps responsibilities and gradually embraced an agent-driven approach to all aspects of my work.</p>
+              <p>While providing evidence for the SOC 2 Audit I was exploring ways to automatically align our compliance via Vanta MCP just by developing merge request skills. I established Docker Sandbox to restrict agents’ access to cloud credentials and as one of the agent sandboxes for the product’s dynamic pipeline capability. I scoped permissions for agents to perform routine root-cause analysis in the cloud, performed agent-driven migration of production environments between hyperscalers and code bases. I used agents in E2B platform delivery, Terraform development and all other aspects of continuous delivery.</p>
+            </article>
 
-        <script>
-            window.playground_copyable = true;
-        </script>
+            <article class="career-entry">
+              <div class="entry-heading">
+                <h3>MSD, Czech Republic <span>/ Enterprise</span></h3>
+                <span class="entry-date"><time datetime="2020-06">Jun 2020</time>–<time datetime="2026-01">Jan 2026</time></span>
+              </div>
+              <h4 class="entry-role">ML Platform Engineer → Data Science Platform Delivery Lead → Data Science Platforms Product Line Architect</h4>
+              <p>I was hired as Big Data Platform Engineer for Hadoop deployments in AWS. I started to work on an in-house, AWS-native Machine Learning Platform and within the first year I became delivery lead of a Data Science platform powered by Dataiku. I stood up a platform with my team from nothing to an established enterprise platform providing Data Science, Data Processing, Machine Learning and AI-driven capabilities. By continuous improvement and efficient delivery, we spearheaded emerging enterprise enablers such as MCS 2.0 AWS Accounts, Kubernetes and enterprise-aligned Terraform Modules. We delivered Karpenter-powered scheduling and drove integration with the Enterprise Agent Platform.</p>
+              <p>As Product Line Architect I was responsible for technical evaluation and delivery of new capabilities. I delivered Code Ocean and Domino Data Science Platform for evaluation by Research Laboratories. Once Domino was chosen to power one of the analytical components in a new Clinical Pipeline, I worked closely with MRL & MRL IT to deliver a Business Critical System with my team.</p>
+              <p>In collaboration with AI Compliance and DevSecOps teams, we provided a Hugging Face model ingestion gateway, enabling scanning of models and storing them in Artifactory. We exposed onboarded models to the community via an Enterprise AI asset catalog. Meanwhile I was driving engagement with Enterprise Architecture to integrate our product line with the emerging Agentic Platform.</p>
+            </article>
 
+            <article class="career-entry">
+              <div class="entry-heading">
+                <h3>ANGELCAM, INC. <span>/ Startup</span></h3>
+                <span class="entry-date"><time datetime="2017-10">Oct 2017</time>–<time datetime="2020-05">May 2020</time></span>
+              </div>
+              <h4 class="entry-role">Owner of Cloud Engineering & Operations, DevOps</h4>
+              <p>My responsibility was maintaining and improving operations, documentation, deployments, monitoring and security of services deployed across different infrastructure providers. Angelcam operates Cloud Recording, Streaming and Broadcasting services integrated with IoT sensors to provide a real-time security service for customers via mobile and web-based interfaces. I ran our operations across AWS, Digital Ocean and multiple bare-metal providers.</p>
+              <p>Among the initial deliverables was containerisation of Rust and Python-based services, their continuous delivery and autoscaling in Docker Swarm. I moved observability and alerting to Prometheus and exposed metrics to the team with Grafana. A big part of the job was building trust with customers, as it depended on reliable connectivity to AWS. In the security market, each downtime in recording might be a reason for cancelling a subscription. I made sure uptime of different services was not just high but also transparent and publicly observable.</p>
+            </article>
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+            <article class="career-entry">
+              <div class="entry-heading">
+                <h3>NATIONAL LIBRARY OF THE CZECH REPUBLIC</h3>
+                <span class="entry-date"><time datetime="2011-02">Feb 2011</time>–<time datetime="2017-09">Sep 2017</time></span>
+              </div>
+              <h4 class="entry-role">Owner of Web Archiving Operation → Head of Application Support</h4>
+              <p>My job was to deliver and continuously improve web archiving services for the National Library. Early in my career I had the opportunity to participate in a staff exchange at the Internet Archive in San Francisco. Among other things, this helped me understand configuration implications and behaviour of their archival crawler and kick-started my knowledge about how huge amounts of data are stored and processed in a meaningful way.</p>
+              <p>I designed and implemented recurrent Czech domain and topical crawls. I maintained a couple of on-premises storage servers with new hard drives, including a couple of RAID 6 resurrections. I was operating an archival retrieval service, our Web Archive websites and other services, research projects and prototypes in vSphere or on bare metal. Before I left I took responsibility for the Application Services Department, as I wanted to drive technical collaboration inside the library and across Czech and foreign libraries.</p>
+            </article>
+          </div>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+          <aside class="technology" aria-labelledby="technology-title">
+            <div class="aside-heading">
+              <h3 id="technology-title">Technology Highlights</h3>
+              <span class="number" aria-hidden="true">04</span>
+            </div>
+            <dl class="tech-list">
+              <div><dt>AWS / Since 2017</dt><dd>Bedrock, EKS, ECS, S3, IAM, SageMaker, Glue, Step Functions, EC2, ALB, NLB, ASG, VPC, Route 53, CloudFormation, CloudWatch, Secrets Manager, Organizations, Accelerator, DynamoDB, RDS, ElastiCache.</dd></div>
+              <div><dt>Azure / Since 2026</dt><dd>Bicep, Foundry, VMs, Front Door, Azure Container Apps</dd></div>
+              <div><dt>Continuous Delivery</dt><dd><ul><li>Terraform & Terragrunt, Ansible</li><li>Docker Compose, Docker Swarm, Kubernetes</li><li>Vagrant, vSphere</li><li>Bitbucket, GitHub, GitLab, Jenkins</li></ul></dd></div>
+              <div><dt>Observability & Alerting</dt><dd>Prometheus, Grafana, Loki, Sentry, Elasticsearch, PagerDuty, Zabbix</dd></div>
+              <div><dt>Data & Data Science Platforms</dt><dd>Dataiku, Databricks, Domino Data Lab, Code Ocean</dd></div>
+              <div><dt>Agent Platforms, Sandboxes & Tooling</dt><dd>E2B, Docker Sandbox, Azure Container Apps, Claude, Codex, Copilot, Bifrost</dd></div>
+              <div><dt>Scripting</dt><dd>Bash, Python</dd></div>
+              <div><dt>Compliance</dt><dd>Vanta</dd></div>
+              <div><dt>Linux Systems</dt><dd>Gentoo, Fedora, CentOS, Red Hat, Debian, Ubuntu, Alpine, SUSE</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
 
-        <!-- Custom JS scripts -->
+      <section class="quest-section" id="side-quests" aria-labelledby="quests-title">
+        <header class="section-banner">
+          <span class="number" aria-hidden="true">05</span>
+          <div><h2 id="quests-title">Side Quests</h2><p>There is always more work to do.</p></div>
+          <div class="banner-block banner-blue" aria-hidden="true"></div>
+        </header>
+        <div class="work-grid">
+          <div>
+            <article class="career-entry">
+              <div class="entry-heading">
+                <h3>DARK CIVILISATIONS <span>/ Computer Game</span></h3>
+                <span class="entry-date"><time datetime="2025-12">Dec 2025</time>–Now</span>
+              </div>
+              <h4 class="entry-role">Dark Factory Development in Rust & Bevy</h4>
+              <p>My studying of human civilisation and playing games formed my ideas on approaching the Civilisation genre. With recent improvements in LLMs and agentic tools I was able to deliver prototype components beyond my programming, academic and mathematical skills. I embrace a dark factory approach and focus on iterative specification of game systems and developing visual appeal.</p>
+              <p>To help agents resolve technical issues, I usually instruct them to conceptualise simulation and computations for me. This greatly simplified navigating technical decisions affecting performance and behaviour of the simulation. Driving artistic aspects of the game, such as music and art, is way more tricky, but I am slowly getting better at adopting what generative AI can do well.</p>
+              <p>This project helps me greatly in assessing capabilities of frontier models and their quirks. I found it very efficient to dedicate a server to the agents and interact with them remotely. Without the recent rise of AI capabilities I would never be able to make any meaningful progress as a salary man.</p>
+            </article>
+            <article class="career-entry">
+              <div class="entry-heading">
+                <h3>DevOps, Cloud Engineering <span>/ Contracting</span></h3>
+                <span class="entry-date"><time datetime="2017-10">Oct 2017</time>–<time datetime="2025-01">Jan 2025</time></span>
+              </div>
+              <h4 class="entry-role">On-demand Delivery</h4>
+              <p>Before my daughter was born, I used my free time for contracting. My clients were my ex-employers and I worked on a project basis.</p>
+            </article>
+          </div>
+          <aside class="technology" aria-labelledby="game-tech-title">
+            <div class="aside-heading"><h3 id="game-tech-title">Game Technologies</h3><span class="number" aria-hidden="true">06</span></div>
+            <dl class="tech-list">
+              <div><dt>Main Programming Languages & Frameworks</dt><dd>Rust, Bevy Engine, wgpu (Metal, Vulkan, DirectX), Python, Streamlit</dd></div>
+              <div><dt>AI Tools</dt><dd>Codex, Claude, Stable Diffusion (local)</dd></div>
+              <div><dt>Target Platforms</dt><dd>Apple Silicon, Windows & Linux (x86 & ARM)</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
 
+      <section class="section personal" aria-labelledby="personal-title">
+        <div class="section-label"><span class="number" aria-hidden="true">07</span><h2 id="personal-title">Education,<br>Languages & Interests</h2></div>
+        <div class="cards">
+          <article class="card card-red">
+            <h3>Education</h3>
+            <p><strong>CHARLES UNIVERSITY</strong><br>B.A. Information Science & Librarianship<br>New Media Studies / Discontinued before thesis</p>
+            <p><strong>MASARYK UNIVERSITY</strong><br>Audiovisual Culture / Discontinued before thesis</p>
+            <p><strong>HACETTEPE UNIVERSITY</strong><br>Information Management / Erasmus</p>
+          </article>
+          <article class="card card-blue">
+            <h3>Languages</h3>
+            <p><strong>Czech</strong> / Native<br><strong>English</strong> / Full professional proficiency<br><strong>French</strong> / Elementary proficiency</p>
+          </article>
+          <article class="card card-pale">
+            <h3>Interests</h3>
+            <p><strong>RECENT LITERATURE & PODCASTS</strong><br>Ancient and Prehistoric Economies<br>History of Technology<br>Contemporary Society and Conflicts<br>Supply chain, AI & Macroeconomics</p>
+            <p><strong>Music, Art & Movies</strong><br>Old, New & Weird</p>
+            <p><strong>Recent Games</strong><br>Elden Ring, Death Stranding, Cyberpunk 2077, Civilisation 7, Humankind, Disco Elysium</p>
+          </article>
+        </div>
+      </section>
 
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="contact-kicker">Prague / Czech Republic</p>
+          <h2 id="contact-title">Let’s build something.</h2>
+          <p>Cloud, platforms, agents — and the people behind them.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-primary" href="https://www.linkedin.com/messaging/compose/?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAP_pjoBq4XoaNyVQF6TCDAYz5mtkauBTL4&amp;recipient=ACoAAAP_pjoBq4XoaNyVQF6TCDAYz5mtkauBTL4&amp;screenContext=NON_SELF_PROFILE_VIEW&amp;interop=msgOverlay" target="_blank" rel="noopener noreferrer" aria-label="Get in touch — message Rudolf on LinkedIn (opens in a new tab)">Get in touch <span aria-hidden="true">↗</span></a>
+          <a class="button" href="assets/rudolf-kreibich-cv.pdf" download="Rudolf Kreibich - CV.pdf">Download CV <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
     </div>
-    </body>
+  </main>
+  <footer class="site-footer shell">
+    <span>Rudolf Kreibich / Engineering & Operations</span>
+    <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+  </footer>
+</body>
 </html>

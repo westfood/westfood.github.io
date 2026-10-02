@@ -1,2 +1,4 @@
-bevy/target
-
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
